@@ -338,6 +338,18 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"template-main.html": {
+				"resources": [
+					"css/own.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"img/jump.gif"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {

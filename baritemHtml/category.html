@@ -78,7 +78,6 @@
 	</head>
 
 	<body>
-
 		<div class="mui-content mui-row mui-fullscreen">
 			<div class="mui-col-xs-4" style="background: #EFEFF4;">
 				<div id="categoryStair" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
@@ -146,13 +145,15 @@
 				mui('#categoryMovers').on('tap', '.mui-table-view-cell a', function() {
 					var categoryA = this;
 					var id = 'category/category-detail-needtem.html';
-					var title = categoryA.innerText;
+					var title = categoryA.getAttribute('data');	//头部颜色有问题 
 					var href = 'category/category-detail-needtem.html';
 					var isBars = false;
 					var barsIcon = '';
 					var aniShow = getaniShow();
 					var categoryID = categoryA.getAttribute('href');
+					
 
+					
 					//弹入分类商品列表
 					mui.fire(parentWebView, 'newWebView', {
 						id: id,
@@ -221,7 +222,7 @@
 				html += '<ul class="mui-table-view mui-grid-view ps">';
 				mui.each(categorysub.categorysubarray, function(index, item) {
 					html = html + '<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" >' +
-						'<a style="color:#797979" href ="' + item.categoryID + '">' +
+						'<a style="color:#797979" data="'+item.productName + '" href ="' + item.categoryID + '">' +
 						'<img style="max-width:100%;" src="' + urlPic + item.pic + '">' +
 						'<div class="mui-media-body">' + item.productName + '<div>' +
 						'</a></li>';

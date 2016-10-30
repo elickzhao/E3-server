@@ -229,7 +229,7 @@ document.body.appendChild(load_element);
 	w.ajax_get_product_list = function(options){
 		startLoad();
 		//var data = getdata(options,'com.huihoo.product.product_list');
-		mui.ajax(httpUrl+'goods/282',{
+		mui.ajax(httpUrl+'goods/'+options.category_id,{
 			//data:data,
 			dataType:'json',//服务器返回json格式数据
 			type:'get',//HTTP请求类型
