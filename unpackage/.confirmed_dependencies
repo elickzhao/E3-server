@@ -1,0 +1,132 @@
+{
+	"baritemHtml/home.html": {
+		"resources": [
+			"js/load.js",
+			"js/md5.js",
+			"css/own.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/own.js",
+			"js/ajax.js",
+			"js/request.addr.js",
+			"img/jump.gif"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"baritemHtml/home.html",
+			"css/own.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/ajax.js",
+			"fonts/iconfont.ttf",
+			"baritemHtml/category.html"
+		],
+		"refer": [
+			"baritemHtml/home.html",
+			"template-main.html",
+			"baritemHtml/mine.html",
+			"baritemHtml/xinyuandan.html",
+			"Mine/login.html",
+			"baritemHtml/category.html",
+			"baritemHtml/cart.html",
+			"product-detail-tem.html",
+			"category/category-detail-needtem.html",
+			"Home/product-detail-needtem.html"
+		]
+	},
+	"baritemHtml/mine.html": {
+		"resources": [
+			"img/bg.jpeg",
+			"css/own.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/load.js",
+			"fonts/iconfont.ttf",
+			"js/md5.js",
+			"js/request.addr.js",
+			"img/touxiang.jpg",
+			"js/own.js",
+			"js/ajax.js"
+		]
+	},
+	"Mine/login.html": {
+		"resources": [
+			"js/own.js",
+			"fonts/mui.ttf",
+			"css/own.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/ajax.js",
+			"js/load.js",
+			"fonts/iconfont.ttf",
+			"js/md5.js",
+			"js/request.addr.js"
+		]
+	},
+	"baritemHtml/cart.html": {
+		"resources": [
+			"js/wl_ajax.js"
+		]
+	},
+	"product-detail-tem.html": {
+		"resources": [
+			"img/jump.gif",
+			"css/own.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css"
+		]
+	},
+	"baritemHtml/xinyuandan.html": {
+		"resources": [
+			"css/own.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/load.js",
+			"js/md5.js",
+			"js/request.addr.js"
+		]
+	},
+	"baritemHtml/category.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/load.js",
+			"js/md5.js",
+			"js/request.addr.js",
+			"js/own.js",
+			"js/ajax.js",
+			"fonts/mui.ttf"
+		]
+	},
+	"category/category-detail-needtem.html": {
+		"resources": [
+			"js/own.js",
+			"js/mui.min.js",
+			"js/ajax.js",
+			"js/load.js",
+			"js/md5.js",
+			"css/own.css",
+			"img/bg.jpeg",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		]
+	},
+	"Home/product-detail-needtem.html": {
+		"resources": [
+			"js/own.js",
+			"js/mui.min.js",
+			"js/ajax.js",
+			"js/load.js",
+			"js/md5.js"
+		]
+	}
+}
