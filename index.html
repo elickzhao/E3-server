@@ -119,7 +119,7 @@
 		}
 		
 		function initProductDetail(){
-			//独立的父子模版页面
+			//独立的父子模版页面	 这是商品详情页
 			detailTem = mui.preload({
 				url:'product-detail-tem.html',
 				id:'product-detail-tem.html',
@@ -169,6 +169,7 @@
 //				if (i != 0) {
 					barItemWebView[i].hide();
 //				}
+				//分类页就是这里 在主页面增加内容 并改了标题
 				mainWebView.append(barItemWebView[i]);
 			}
 			
@@ -202,7 +203,7 @@
 			barItemWebView[index].show();
 		}
 		
-		//初始化父子模版函数
+		//初始化父子模版函数  商品列表模版
 		function initParentChildTemplate() {
 			headerWebView = mui.preload({
 				url: 'template-main.html',
@@ -215,12 +216,11 @@
 					mtype: 'main'
 				}
 			});
-			//XXX 好像只有商品列表和商品详情是模版啊
 			contentWebView = mui.preload({
 				url: '',
 				id: 'template-sub.html',
 				styles: {
-					top: '44px',	//这里换个高度就能看出来了
+					top: '44px',
 					bottom: '0px',
 					bounce: 'vertical',
 					bounceBackground:'#DCDCDC'

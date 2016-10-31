@@ -15,14 +15,14 @@
 				height: 0px;
 			}
 			/*图片显示的时候设置为自动 因为 从服务器来的图片大小相同*/
+			
 			.mui-table-view .mui-table-view-cell .mui-media-object {
-    			line-height: auto;
-    			max-width: 126px;
-    			height: 126px;
-    			
-    			border-top-right-radius: 4px; 
-    			border-top-left-radius: 4px;
-    		}
+				line-height: auto;
+				max-width: 126px;
+				height: 126px;
+				border-top-right-radius: 4px;
+				border-top-left-radius: 4px;
+			}
 			
 			.mui-table-view-cell {
 				margin-bottom: 10px;
@@ -62,10 +62,10 @@
 		</style>
 	</head>
 
-	<body>
+	<body style="background-color: white;">
 
 		<div class="mui-content own-content-padding">
-			<ul id="productsList" class="mui-table-view  own-gray-color" style="margin-top: 0px;">
+			<ul id="productsList" class="mui-table-view" style="margin-top: 0px;">
 				<!--<li class="mui-table-view-cell mui-media mui-col-xs-12">
 					<a href="#">
 						<img class="mui-media-object mui-pull-left" src="../img/bg.jpeg" />
@@ -85,7 +85,12 @@
 
 		<script type="text/javascript" charset="UTF-8">
 			mui.init({
-				swipeBack: false
+				swipeBack: false,
+				beforeback: function() {
+					productsList.innerHTML = '';
+					datalist = [];
+					return true;
+				}
 			});
 
 			var datalist = []; //数据数组
@@ -114,13 +119,15 @@
 				}, false);
 
 				//监听页面hide事件，当页面返回的时候将里面的数据清空
-				//XXX 这个放在退回事件监听里更好,要不还能看见一点
-				categorydetailWebview.addEventListener('hide', function() {
-					//将数据清空以及主要显示列表页面的innerhtml设置为''
-					productsList.innerHTML = '';
-					datalist = [];
-
-				}, false);
+				// 这个放在退回事件监听里更好,要不还能看见一点
+				// 这忒有意思了  没有这个反而不会闪一下原来的内容
+//				categorydetailWebview.addEventListener('hide', function() {
+//					//将数据清空以及主要显示列表页面的innerhtml设置为''
+//					console.log("我被执行了一次");
+//					//productsList.innerHTML = '';
+//					//datalist = [];
+//
+//				}, false);
 
 				//添加每个item点击的监听事件
 				mui('#productsList').on('tap', 'a', function() {
@@ -143,21 +150,21 @@
 
 			//成功查询分类列表下的数据
 			function productlistSuccess(data) {
-					mui.each(data.data, function(index, item) {
-						var dataItem = {
-							detail_image_url: urlPic+item.goods_thumb,
-							market_price: item.market_price,
-							shop_price: item.shop_price,
-							product_name: item.goods_name,
-							product_id: item.goods_id
-						};
-						datalist.push(dataItem);
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell mui-media mui-col-xs-12';
-						li.innerHTML = '<a href="' + item.goods_id + '"><img class="mui-media-object mui-pull-left" src="' + urlPic+item.goods_thumb + '"/><div class="mui-media-body"><p class="mui-ellipsis-2">' + item.goods_name + '</p><p class="price-one">¥' + item.shop_price + '</p><p class="price-two">¥' + item.market_price + '</p></div></a>';
-						productsList.appendChild(li);
-					});
-				 
+				mui.each(data.data, function(index, item) {
+					var dataItem = {
+						detail_image_url: urlPic + item.goods_thumb,
+						market_price: item.market_price,
+						shop_price: item.shop_price,
+						product_name: item.goods_name,
+						product_id: item.goods_id
+					};
+					datalist.push(dataItem);
+					var li = document.createElement('li');
+					li.className = 'mui-table-view-cell mui-media mui-col-xs-12';
+					li.innerHTML = '<a href="' + item.goods_id + '"><img class="mui-media-object mui-pull-left" src="' + urlPic + item.goods_thumb + '"/><div class="mui-media-body"><p class="mui-ellipsis-2">' + item.goods_name + '</p><p class="price-one">¥' + item.shop_price + '</p><p class="price-two">¥' + item.market_price + '</p></div></a>';
+					productsList.appendChild(li);
+				});
+
 			}
 		</script>
 	</body>

@@ -8,7 +8,7 @@
 	 		dataload.style.position = 'absolute';
 	 		dataload.style.width = '100%';
 	 		dataload.style.textAlign = 'center';
-			dataload.style.top = '70px';
+			dataload.style.top = '200px';
 			dataload
 	 		
 	 		dataload.style.zIndex = 1000000;
