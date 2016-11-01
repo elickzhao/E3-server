@@ -71,7 +71,13 @@
 	},
 	"baritemHtml/cart.html": {
 		"resources": [
-			"js/wl_ajax.js"
+			"js/wl_ajax.js",
+			"css/own.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/load.js",
+			"js/md5.js",
+			"js/mui.min.js"
 		]
 	},
 	"product-detail-tem.html": {
@@ -126,7 +132,10 @@
 			"js/mui.min.js",
 			"js/ajax.js",
 			"js/load.js",
-			"js/md5.js"
+			"js/md5.js",
+			"css/own.css",
+			"css/iconfont.css",
+			"css/mui.min.css"
 		]
 	},
 	"template-main.html": {

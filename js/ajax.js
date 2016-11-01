@@ -226,25 +226,26 @@ document.body.appendChild(load_element);
 	}
 	
 	//获取分类产品
-	w.ajax_get_product_list = function(options){
+	w.ajax_get_product_list = function(options,callback){
 		startLoad();
 		//var data = getdata(options,'com.huihoo.product.product_list');
+		var cont = 0;
 		mui.ajax(httpUrl+'goods/'+options.category_id,{
 			//data:data,
 			dataType:'json',//服务器返回json格式数据
 			type:'get',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；
 			success:function(data){
-				//logData(data);
 				setTimeout(function(){
 					endLoad();
-					productlistSuccess(data);
+					return callback(data);
+					//productlistSuccess(data);
 				},500);
 				
 				
 			},
 			error:function(xhr,type,errorThrown){
-				
+				logData(errorThrown);
 			}
 		});
 	}
