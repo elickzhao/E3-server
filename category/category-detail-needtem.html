@@ -132,25 +132,23 @@
 //				
 //			}
 
-			var page = 0;
 			function pullupRefresh(){
 				getGoods();
 	
 			}
-
+			var page = 1;
 			function getGoods(categoryID){
-				page++;
 				var id = categoryID = categoryID ? categoryID : pid;
 					ajax_get_product_list({
 						category_id: id,
-						page_size: '8',
+						page_size: '2',
 						page_num: page,
 						status: 'normal'
 					},function(data){
-						//console.log(data.data.length);
-						if(data.data.length < 8 && page == 1){
+						page++;
+						if(data.meta.pagination.total_pages == 1){
 							mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
-						}else if(data.data.length < 8){
+						}else if(data.meta.pagination.total_pages == data.meta.pagination.current_page){
 							mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
 						}else{
 							mui('#pullrefresh').pullRefresh().endPullupToRefresh();
@@ -159,7 +157,7 @@
 						
 					});
 					pid = categoryID;
-					//console.log(pid);
+
 			}
 
 

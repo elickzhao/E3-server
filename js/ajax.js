@@ -230,7 +230,7 @@ document.body.appendChild(load_element);
 		startLoad();
 		//var data = getdata(options,'com.huihoo.product.product_list');
 		var cont = 0;
-		mui.ajax(httpUrl+'goods/'+options.category_id,{
+		mui.ajax(httpUrl+'goods/'+options.category_id+'/'+options.page_size+'?page='+options.page_num,{
 			//data:data,
 			dataType:'json',//服务器返回json格式数据
 			type:'get',//HTTP请求类型
