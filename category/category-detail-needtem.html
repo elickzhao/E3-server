@@ -64,7 +64,7 @@
 
 	<body style="background-color: white;">
 
-		<div class="mui-content own-content-padding">
+		<div id="pullrefresh" class="mui-content own-content-padding">
 			<ul id="productsList" class="mui-table-view" style="margin-top: 0px;">
 				<!--<li class="mui-table-view-cell mui-media mui-col-xs-12">
 					<a href="#">
@@ -84,14 +84,31 @@
 		<script src="../js/own.js" charset="UTF-8"></script>
 
 		<script type="text/javascript" charset="UTF-8">
+
 			mui.init({
-				swipeBack: false,
-				beforeback: function() {
-					productsList.innerHTML = '';
-					datalist = [];
-					return true;
-				}
+			  swipeBack: false,
+			  pullRefresh : {
+			    container:'#pullrefresh',
+				down: {
+						height:40,
+						callback: pulldownRefresh
+				},
+//			    up : {
+//			      callback :pullfresh 
+//			    }
+			  }
 			});
+
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1500);
+			}
 
 			var datalist = []; //数据数组
 			var listHtml = []; //listhtml数组
@@ -118,16 +135,6 @@
 					});
 				}, false);
 
-				//监听页面hide事件，当页面返回的时候将里面的数据清空
-				// 这个放在退回事件监听里更好,要不还能看见一点
-				// 这忒有意思了  没有这个反而不会闪一下原来的内容
-//				categorydetailWebview.addEventListener('hide', function() {
-//					//将数据清空以及主要显示列表页面的innerhtml设置为''
-//					console.log("我被执行了一次");
-//					//productsList.innerHTML = '';
-//					//datalist = [];
-//
-//				}, false);
 
 				//添加每个item点击的监听事件
 				mui('#productsList').on('tap', 'a', function() {
