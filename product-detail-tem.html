@@ -19,18 +19,29 @@
     			color: gray;
     			text-align: center;
     		}
+    		
+    		.mui-bar-nav .mui-title {
+				color: white;
+			}
+			.mui-active .mui-icon,
+			.mui-active .mui-tab-label {
+				color: #41cea9;
+			}
+			.mui-icon-left-nav, .mui-bar-nav h1, .mui-pull-right{
+				color: white;
+			}
     </style>
 </head>
 <body>
 	
-	<header class="mui-bar mui-bar-nav">
+	<header class="mui-bar mui-bar-nav own-main-background-color">
 		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		<h1 class="mui-title">商品详情</h1>
 	</header>
 	
 	
 	<div class="mui-content">
-		<div style="margin-top: 70px;">
+		<div style="margin-top: 200px;">
 			<a>
 				<span ><img src="img/jump.gif" style="max-width:2em; height:auto;"/></span>
 			</a>
@@ -69,7 +80,7 @@
 			
 			//接收子页面获取productid事件，然后返回事件
 			window.addEventListener('getproductid',function(){
-				console.log('收到获取productid事件')
+				//console.log('收到获取productid事件')
 				mui.fire(detailsub,'postproductid',{
 					product_id:product_id
 				});

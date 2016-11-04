@@ -240,7 +240,7 @@ document.body.appendChild(load_element);
 					endLoad();
 					return callback(data);
 					//productlistSuccess(data);
-				},500);
+				},50);
 				
 				
 			},
@@ -249,6 +249,31 @@ document.body.appendChild(load_element);
 			}
 		});
 	}
+	
+	//商品详情
+	w.ajax_get_product_detail = function(options){
+		startLoad();
+		mui.ajax(httpUrl+'good/'+options.product_id,{
+			dataType:'json',//服务器返回json格式数据
+			type:'get',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			success:function(data){
+				//console.log(data);
+				data.id = options.product_id;
+				setTimeout(function(){
+					endLoad();
+					productDetailSuccess(data);
+				},50);
+				
+				
+			},
+			error:function(xhr,type,errorThrown){
+				console.log(errorThrown);
+			}
+		});
+	}
+	
+	
 	
 	//查询用户喜欢的商品
 	w.ajax_get_likelist = function(options){
@@ -274,6 +299,8 @@ document.body.appendChild(load_element);
 		});
 	}
 	
+
+	
 	//删除喜欢的商品
 	w.ajax_delete_likeItem = function(options){
 		startLoad();
@@ -297,31 +324,6 @@ document.body.appendChild(load_element);
 			}
 		});
 		
-	}
-	
-	//商品详情
-	w.ajax_get_product_detail = function(options){
-		startLoad();
-		var data = getdata(options,'com.huihoo.product.product_detail');
-		mui.ajax(httpUrl,{
-			data:data,
-			dataType:'json',//服务器返回json格式数据
-			type:'get',//HTTP请求类型
-			timeout:10000,//超时时间设置为10秒；
-			success:function(data){
-				logData(data);
-				data.id = options.product_id;
-				setTimeout(function(){
-					endLoad();
-					productDetailSuccess(data);
-				},500);
-				
-				
-			},
-			error:function(xhr,type,errorThrown){
-				
-			}
-		});
 	}
 	
 	//获取首页跑马灯

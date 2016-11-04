@@ -161,6 +161,7 @@
 		var product_id;
 		var detail = {};
 		var detailcontent;
+		var urlPic = 'http://www.huanqiujishi.com/server/content/uploads/';
 		mui.plusReady(function(){
 			currentWebview = plus.webview.currentWebview();
 			paredntWebview = currentWebview.parent();
@@ -176,7 +177,7 @@
 			mui.fire(paredntWebview,'getproductid',{});
 			//监听返回getproductid事件
 			window.addEventListener('postproductid',function(e){
-				console.log('收到productid');
+				//console.log('收到productid--> '+e.detail.product_id);
 				product_id = e.detail.product_id;
 				//像服务器请求
 				ajax_get_product_detail({
@@ -187,14 +188,18 @@
 		});
 		
 		function productDetailSuccess(data){
-			console.log(JSON.stringify(data));
-			if (data.code == '000000') {
+			//console.log(JSON.stringify(data));
+			//if (data.code == '000000') {
 				//成功获取可以解析
-				detail.detail_small_pictures = data.detail_small_pictures;
-				detail.product_name = data.product.product_name;
-				detail.product_price = data.product.product_price;
+				detail.detail_small_pictures = data.data.imgs;
+				detail.product_name = data.data.goods_name;
+				detail.shop_price = data.data.shop_price;
+				detail.market_price = data.data.market_price;
+				detail.shop_name = data.data.shop_name;
+				detail.logo_thumb = data.data.logo_thumb;
+
 				setHtml();
-			}
+			//}
 		}
 		
 		function setHtml(){
@@ -226,24 +231,24 @@
 			
 			var picsliderindicator = document.createElement('div');
 			picsliderindicator.className = 'mui-slider-indicator';
-			for (var i = 1; i <detail.detail_small_pictures.length;) {
+			for (var i = 0; i < detail.detail_small_pictures.length;) {
 				var item = detail.detail_small_pictures[i];
 				//设置itemdetai
 				var div = document.createElement('div');
 				div.className = 'mui-slider-item';
-				var html = '<a href="#"><img src="http://file.huihoo.com'+item+'"/></a>';
+				var html = '<a href="#"><img src="'+urlPic+item+'"/></a>';
 				div.innerHTML = html;
 				picSliderGroup.appendChild(div);
 				//设置itemindicator
 				var divindicator = document.createElement('div');
-				if (i == 1) {
+				if (i == 0) {
 					divindicator.className = 'mui-indicator mui-active';
 				} else{
 					divindicator.className = 'mui-indicator';
 				}
 				picsliderindicator.appendChild(divindicator);
 			
-				i = i +2;
+				i++;
 			}
 			picSlider.appendChild(picSliderGroup);
 			picSlider.appendChild(picsliderindicator);
@@ -263,8 +268,8 @@
 					<div class="mui-table">\
 						<div class="mui-table-cell mui-col-xs-10">\
 							<h5 class="own-black-color mui-ellipsis-2">'+detail.product_name+'</h5>\
-							<h5 class="own-main-color">¥'+detail.product_price.defaultPrice+'</h5>\
-							<h6 class="own-text-through">¥'+detail.product_price.listPrice+'</h6>\
+							<h5 class="own-main-color">¥'+detail.shop_price+'</h5>\
+							<h6 class="own-text-through">¥'+detail.market_price+'</h6>\
 						</div>\
 						<div class="mui-table-cell mui-col-xs-2 mui-text-right" >\
 							<div class="borderleft">\
@@ -358,8 +363,8 @@
 			storeUl.className = 'mui-table-view';
 			storeUl.innerHTML = '<li class="mui-table-view-cell">\
 				<div class="evaluaterHead">\
-					<img src="../img/bg.jpeg" />\
-					<span class="mui-ellipsis">[妮妮的店铺]全部正品</span>\
+					<img src="'+urlPic+ detail.logo_thumb+'" />\
+					<span class="mui-ellipsis">'+detail.shop_name+'</span>\
 				</div>\
 				<div class="mui-table">\
 					<div class="mui-table-cell mui-col-xs-4">发货速度：4.8</div>\

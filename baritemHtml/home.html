@@ -1,233 +1,491 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>E3</title>
-    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/own.css"/>
-    <style type="text/css">
-    		.mui-table-view:after {
-    			height: 0px;
-    		}
-    		
-    		
-    		/*图片显示的时候设置为自动 因为 从服务器来的图片大小相同*/
-    		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
-    			line-height: auto;
-    			max-width: auto;
-    			height: auto;
-    			
-    			border-top-right-radius: 4px; 
-    			border-top-left-radius: 4px;
-    		}
-    		
-    		.mui-table-view-cell {
-    			margin-bottom: 10px;
-    		}
-    		.bgDiv {
-    			border: 1px solid rgba(204,204,204,0.7); 
-    			border-radius: 5px; 
-    			background-color: white;
-    			width: 100%;
-    		}
-    		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
-    			margin-top: 2px;
-    			margin-bottom: 5px;
-    			height: auto;
-    		}
-    		
-    		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p {
-    			white-space:pre;
-    			color: black;
-    		}
-    		
-    		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p.mui-ellipsis-2 {
-    			height: 30px;
-    		}
-    		
-    		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body .price-one {
-    			margin-top: 12px;
-    			float: left;
-    			font-size: 1.1em;
-    			margin-left: 7%;
-    			color: red;
-    			margin-bottom: 10px;
-    		}
-    		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body .price-two {
-    			margin-top: 12px;
-    			float: right;
-    			font-size: 1.1em;
-    			margin-right: 7%;
-    			text-decoration: line-through;
-    		}
-    </style>
-</head>
-<body>
-	
-	<div id="homeDiv" class="mui-content own-content-padding">
-		<div id="productSlider" class="mui-slider">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>E3</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../css/own.css" />
+		<style type="text/css">
+			.mui-table-view:after {
+				height: 0px;
+			}
+			/*图片显示的时候设置为自动 因为 从服务器来的图片大小相同*/
 			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
+				line-height: auto;
+				max-width: auto;
+				height: auto;
+				border-top-right-radius: 4px;
+				border-top-left-radius: 4px;
+			}
+			
+			.mui-table-view-cell {
+				margin-bottom: 10px;
+			}
+			
+			.bgDiv {
+				border: 1px solid rgba(204, 204, 204, 0.7);
+				border-radius: 5px;
+				background-color: white;
+				width: 100%;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+				margin-top: 2px;
+				margin-bottom: 5px;
+				height: auto;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p {
+				white-space: pre;
+				color: black;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p.mui-ellipsis-2 {
+				height: 30px;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body .price-one {
+				margin-top: 12px;
+				float: left;
+				font-size: 1.1em;
+				margin-left: 7%;
+				color: red;
+				margin-bottom: 10px;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body .price-two {
+				margin-top: 12px;
+				float: right;
+				font-size: 1.1em;
+				margin-right: 7%;
+				text-decoration: line-through;
+			}
+			
+			.short-cut {
+				height: 45px;
+				width: 45px;
+			}
+			
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+				border: none;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="homeDiv" class="mui-content own-content-padding">
+			<div id="productSlider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../img/index4.png">
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../img/index1.jpg">
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../img/index2.jpg">
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../img/index3.jpg">
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../img/index4.png">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../img/index1.jpg">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+
+			</div>
+
+			<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: white;">
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<span><img src="../img/1476836629523360144.png" class="short-cut"/></span>
+						<div class="mui-media-body">扫一扫</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<span><img src="../img/1476836643699422761.png" class="short-cut"/></span>
+						<div class="mui-media-body">二维码</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<span><img src="../img/1476836656619071921.png" class="short-cut"/></span>
+						<div class="mui-media-body">支付宝</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<span><img src="../img/1476836666640248800.png" class="short-cut"/></span>
+						<div class="mui-media-body">我都订单</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<span><img src="../img/1476836629523360144.png" class="short-cut"/></span>
+						<div class="mui-media-body">网销爆款</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<span><img src="../img/1476836683497479302.png" class="short-cut"/></span>
+						<div class="mui-media-body">海外淘</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<span><img src="../img/1476836695326558918.png" class="short-cut"/></span>
+						<div class="mui-media-body">天天特价</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<span><img src="../img/1476836705546595344.png" class="short-cut"/></span>
+						<div class="mui-media-body">量贩团</div>
+					</a>
+				</li>
+			</ul>
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>
+						新手专区
+					</a>
+				</li>
+				<div class="mui-card" style="border: none;">
+					<img src="../img/1476840805338062377.jpg" width="100%" />
+				</div>
+
+			</ul>
+
+			<div class="mui-row" style="padding: 11px 15px;background-color: white;">
+				<div class="mui-col-xs-4 "><img src="../img/1476295052282433318.jpg" width="100%" /></div>
+				<div class="mui-col-xs-4 "><img src="../img/1476295071936906956.jpg" width="100%" /></div>
+				<div class="mui-col-xs-4 "><img src="../img/1476295086202527219.jpg" width="100%" /></div>
+			</div>
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>
+						团购
+					</a>
+				</li>
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<ul class="mui-table-view mui-grid-view">
+								<li class="mui-table-view-cell mui-media mui-col-xs-6">
+									<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/8653_thumb_G_1474658715983.jpg">
+										<div class="mui-media-body">卡帝乐鳄鱼冰丝男士内裤中腰性感透气青年男生四角纯色宽松平角裤</div>
+										<div class="mui-media-body"><b style="color: red;">￥16.00</b></div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-6">
+									<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/9582_thumb_G_1475196980670.jpg">
+										<div class="mui-media-body">正品黑人牙刷炭丝深洁竹炭纤细软毛双支装*4共8支男女士便携套</div>
+										<div class="mui-media-body"><b style="color: red;">￥27.00</b></div>
+									</a>
+								</li>
+							</ul>
+
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<ul class="mui-table-view mui-grid-view">
+								<li class="mui-table-view-cell mui-media mui-col-xs-6">
+									<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/8555_thumb_G_1474571298886.jpg">
+										<div class="mui-media-body">张小泉碳钢指甲钳 便携指甲剪刀 个人清洁指甲刀特价</div>
+										<div class="mui-media-body"><b style="color: red;">￥8.90</b></div>
+
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-6">
+									<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/8652_thumb_G_1474658266135.jpg">
+										<div class="mui-media-body">迷你自拍神器 高端线控铝合金自拍杆 大镜子免蓝牙一体线控自拍器</div>
+										<div class="mui-media-body"><b style="color: red;">￥30.00</b></div>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="mui-slider-item">
+							<ul class="mui-table-view mui-grid-view">
+								<li class="mui-table-view-cell mui-media mui-col-xs-6">
+									<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/8653_thumb_G_1474658715983.jpg">
+										<div class="mui-media-body">卡帝乐鳄鱼冰丝男士内裤中腰性感透气青年男生四角纯色宽松平角裤</div>
+										<div class="mui-media-body"><b style="color: red;">￥16.00</b></div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-6">
+									<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/9582_thumb_G_1475196980670.jpg">
+										<div class="mui-media-body">正品黑人牙刷炭丝深洁竹炭纤细软毛双支装*4共8支男女士便携套</div>
+										<div class="mui-media-body"><b style="color: red;">￥27.00</b></div>
+									</a>
+								</li>
+							</ul>
+
+						</div>
+
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<ul class="mui-table-view mui-grid-view">
+								<li class="mui-table-view-cell mui-media mui-col-xs-6">
+									<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/8555_thumb_G_1474571298886.jpg">
+										<div class="mui-media-body">张小泉碳钢指甲钳 便携指甲剪刀 个人清洁指甲刀特价</div>
+										<div class="mui-media-body"><b style="color: red;">￥8.90</b></div>
+
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-6">
+									<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/8652_thumb_G_1474658266135.jpg">
+										<div class="mui-media-body">迷你自拍神器 高端线控铝合金自拍杆 大镜子免蓝牙一体线控自拍器</div>
+										<div class="mui-media-body"><b style="color: red;">￥30.00</b></div>
+									</a>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+					<div class="mui-slider-indicator" style="position: static;background-color: #fff;">
+						<span class="mui-action mui-action-previous mui-icon mui-icon-back"></span>
+						<div class="mui-number">
+							<span>1</span> / 2
+						</div>
+						<span class="mui-action mui-action-next mui-icon mui-icon-forward"></span>
+					</div>
+				</div>
+			</ul>
+<br/>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>
+						促销商品
+					</a>
+				</li>
+				<ul class="mui-table-view mui-grid-view" style="border: none; position:static">
+					<li class="mui-table-view-cell mui-media mui-col-xs-6" >
+						<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201610/thumb_img/10586_thumb_G_1476511675600.jpg">
+							<div class="mui-media-body">散养土鸡蛋20枚 散装土特产 农家草鸡蛋柴鸡蛋 36-40g/个</div>
+							<div class="mui-media-body"><b style="color: red;">￥31.00</b></div>
+
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-6">
+						<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201610/thumb_img/10134_thumb_G_1476059892021.jpg">
+							<div class="mui-media-body">VS唯尚茶国 彩虹甜心花果茶 果粒茶 水果茶 100g/盒</div>
+							<div class="mui-media-body"><b style="color: red;">￥19.00</b></div>
+						</a>
+					</li>
+					
+					<li class="mui-table-view-cell mui-media mui-col-xs-6" >
+						<a href="#"><img class="mui-media-object" src="http://www.huanqiujishi.com/server/content/uploads/images/201609/thumb_img/8655_thumb_G_1474658984329.jpg">
+							<div class="mui-media-body">机器人音箱 太空人电脑音响 笔记本台式电脑礼品小音响</div>
+							<div class="mui-media-body"><b style="color: red;">￥15.00</b></div>
+
+						</a>
+					</li>
+
+				</ul>
+
+				
+			</ul>
+
+			<div id="recommend" class="mui-table-view mui-grid-view own-gray-color">
+
+			</div>
 		</div>
-		<div id="recommend" class="mui-table-view mui-grid-view own-gray-color">
-			
-		</div>
-	</div>
-	
-	<script src="../js/mui.min.js" charset="UTF-8"></script>
-	<script src="../js/ajax.js" charset="UTF-8"></script>
-	<script src="../js/own.js" charset="UTF-8"></script>
-	<script type="text/javascript" charset="UTF-8">
-		mui.init({
-			swipeBack:false
-		});
-		
-		
-		//将ios中独有的东西在android上屏蔽
-		
-		var isLoadMarquee = false;
-		var isLoadRecommend = false;
-		var currentWebview;
-		var homeDiv;
-		var marqueeArray = [];//跑马灯数据数组
-		var recommendArray = [];//推荐商品数组
-		mui.plusReady(function(){
-			currentWebview = plus.webview.currentWebview();
-			homeDiv = document.getElementById('homeDiv');
-			//进到这个函数说明plusready可以通信(解决为什么第一个显示的界面不没有触发show函数)
-			pasueLink();
-			//监听show事件请求数据
-			currentWebview.addEventListener('show',function(){
-				pasueLink();
-			},false);
-			
-			//添加每个item点击的监听事件
-			mui('#recommend').on('tap','a',function(){
-				var item = this;
-				var itemID = this.getAttribute('href');
-				var indexWebview = plus.webview.getWebviewById('HBuilder');
-				var anishow = getaniShow();
-				//弹入分类商品列表
-				mui.fire(indexWebview,'newWebView',{
-					id:'Home/product-detail-needtem.html',
-					href:'Home/product-detail-needtem.html',
-					aniShow:anishow,
-					title:'商品详情',
-					isBars:false,
-					barsIcon:'',
-					product_id:itemID,
+
+		<script src="../js/mui.min.js" charset="UTF-8"></script>
+		<script src="../js/ajax.js" charset="UTF-8"></script>
+		<script src="../js/own.js" charset="UTF-8"></script>
+		<script type="text/javascript" charset="UTF-8">
+			mui.init({
+				swipeBack: false
+			});
+
+			//将ios中独有的东西在android上屏蔽
+
+			var isLoadMarquee = false;
+			var isLoadRecommend = false;
+			var currentWebview;
+			var homeDiv;
+			var marqueeArray = []; //跑马灯数据数组
+			var recommendArray = []; //推荐商品数组
+			mui.plusReady(function() {
+				currentWebview = plus.webview.currentWebview();
+				homeDiv = document.getElementById('homeDiv');
+				//进到这个函数说明plusready可以通信(解决为什么第一个显示的界面不没有触发show函数)
+				//pasueLink();
+				//监听show事件请求数据
+				//				currentWebview.addEventListener('show', function() {
+				//					pasueLink();
+				//				}, false);
+
+				// 静态silder自动滚动
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 3000, //自动轮播周期，若为0则不自动播放，默认为0；
+					bounceTime: 800, //下面这个是播放速度 上面的值必须大于下面的
+				});
+
+				//添加每个item点击的监听事件
+				mui('#recommend').on('tap', 'a', function() {
+					var item = this;
+					var itemID = this.getAttribute('href');
+					var indexWebview = plus.webview.getWebviewById('HBuilder');
+					var anishow = getaniShow();
+					//弹入分类商品列表
+					mui.fire(indexWebview, 'newWebView', {
+						id: 'Home/product-detail-needtem.html',
+						href: 'Home/product-detail-needtem.html',
+						aniShow: anishow,
+						title: '商品详情',
+						isBars: false,
+						barsIcon: '',
+						product_id: itemID,
+					});
 				});
 			});
-		});
-		
-		//与服务器通信
-		function pasueLink(){
-			if (!isLoadMarquee && marqueeArray.length<=0) {
-				//开始请求
-				isLoadMarquee  = true;
-				ajax_get_Marquee({});
-			}
-			if (!isLoadRecommend && recommendArray.length<=0) {
-				isLoadRecommend = true;
-				ajax_get_Recommend();
-			}
-		}
-		
-		function getMarqueeSuccess(data){
-			if (data.code == '000000') {
-				marqueeArray = data.paomadeng;
-				//设置跑马灯
-				setMarquee();
-			}
-			isLoadMarquee = false;
-		}
-		function getRecommendSuccess(data){
-			if (data.code = '000000') {
-				mui.each(data.hotSaleProducts,function(index,item){
-					var dataItem = {};
-					dataItem.product_price = item.product_price;
-					dataItem.product_name = item.product_name;
-					dataItem.large_image_url = item.large_image_url;
-					dataItem.product_id = item.product_id;
-					recommendArray.push(dataItem);
-				});
-				//设置推荐商品
-				setRecommend();
-			}
-			isLoadRecommend = false;
-		}
-		
-		function setMarquee(){
-			var sliderMarquee = document.getElementById('productSlider');
-			var sliderGroup = document.createElement('div');
-			sliderGroup.className = 'mui-slider-group mui-slider-loop';
-			sliderMarquee.appendChild(sliderGroup);
-			var sliderIndicator = document.createElement('div');
-			sliderIndicator.className = 'mui-slider-indicator';
-			sliderMarquee.appendChild(sliderIndicator);
-			
-			for (var i = 0; i < marqueeArray.length; i++) {
-				
-				if (0 == i) {
-					var sliderItemDuplicate = document.createElement('div');
-					sliderItemDuplicate.className = 'mui-slider-item mui-slider-item-duplicate';
-					sliderItemDuplicate.innerHTML = '<a href="'+marqueeArray[marqueeArray.length-1].contentId+'">\
-							<img src="'+marqueeArray[marqueeArray.length-1].imagerpath+'" />\
-						</a>';
-					sliderGroup.appendChild(sliderItemDuplicate);
+
+			//与服务器通信
+			//			function pasueLink() {
+			//				if(!isLoadMarquee && marqueeArray.length <= 0) {
+			//					//开始请求
+			//					isLoadMarquee = true;
+			//					ajax_get_Marquee({});
+			//				}
+			//				if(!isLoadRecommend && recommendArray.length <= 0) {
+			//					isLoadRecommend = true;
+			//					ajax_get_Recommend();
+			//				}
+			//			}
+
+			function getMarqueeSuccess(data) {
+				if(data.code == '000000') {
+					marqueeArray = data.paomadeng;
+					//设置跑马灯
+					setMarquee();
 				}
-				
-				
-				var sliderItem = document.createElement('div');
-				sliderItem.className = 'mui-slider-item';
-				sliderItem.innerHTML = '<a href="'+marqueeArray[i].contentId+'">\
-						<img src="'+marqueeArray[i].imagerpath+'" />\
+				isLoadMarquee = false;
+			}
+
+			function getRecommendSuccess(data) {
+				if(data.code = '000000') {
+					mui.each(data.hotSaleProducts, function(index, item) {
+						var dataItem = {};
+						dataItem.product_price = item.product_price;
+						dataItem.product_name = item.product_name;
+						dataItem.large_image_url = item.large_image_url;
+						dataItem.product_id = item.product_id;
+						recommendArray.push(dataItem);
+					});
+					//设置推荐商品
+					setRecommend();
+				}
+				isLoadRecommend = false;
+			}
+
+			function setMarquee() {
+				var sliderMarquee = document.getElementById('productSlider');
+				var sliderGroup = document.createElement('div');
+				sliderGroup.className = 'mui-slider-group mui-slider-loop';
+				sliderMarquee.appendChild(sliderGroup);
+				var sliderIndicator = document.createElement('div');
+				sliderIndicator.className = 'mui-slider-indicator';
+				sliderMarquee.appendChild(sliderIndicator);
+
+				for(var i = 0; i < marqueeArray.length; i++) {
+
+					if(0 == i) {
+						var sliderItemDuplicate = document.createElement('div');
+						sliderItemDuplicate.className = 'mui-slider-item mui-slider-item-duplicate';
+						sliderItemDuplicate.innerHTML = '<a href="' + marqueeArray[marqueeArray.length - 1].contentId + '">\
+							<img src="' + marqueeArray[marqueeArray.length - 1].imagerpath + '" />\
+						</a>';
+						sliderGroup.appendChild(sliderItemDuplicate);
+					}
+
+					var sliderItem = document.createElement('div');
+					sliderItem.className = 'mui-slider-item';
+					sliderItem.innerHTML = '<a href="' + marqueeArray[i].contentId + '">\
+						<img src="' + marqueeArray[i].imagerpath + '" />\
 					</a>';
-				sliderGroup.appendChild(sliderItem);
-					
-				var indicatorItme = document.createElement('div');
-				if (i == 0) {
-					indicatorItme.className = 'mui-indicator mui-active';
-				}else {
-					indicatorItme.className = 'mui-indicator';
-				}
-				sliderIndicator.appendChild(indicatorItme);
-				
-				if (marqueeArray.length-1 == i) {
-					var sliderItemDuplicate = document.createElement('div');
-					sliderItemDuplicate.className = 'mui-slider-item mui-slider-item-duplicate';
-					sliderItemDuplicate.innerHTML = '<a href="'+marqueeArray[0].contentId+'">\
-							<img src="'+marqueeArray[0].imagerpath+'" />\
+					sliderGroup.appendChild(sliderItem);
+
+					var indicatorItme = document.createElement('div');
+					if(i == 0) {
+						indicatorItme.className = 'mui-indicator mui-active';
+					} else {
+						indicatorItme.className = 'mui-indicator';
+					}
+					sliderIndicator.appendChild(indicatorItme);
+
+					if(marqueeArray.length - 1 == i) {
+						var sliderItemDuplicate = document.createElement('div');
+						sliderItemDuplicate.className = 'mui-slider-item mui-slider-item-duplicate';
+						sliderItemDuplicate.innerHTML = '<a href="' + marqueeArray[0].contentId + '">\
+							<img src="' + marqueeArray[0].imagerpath + '" />\
 						</a>';
-					sliderGroup.appendChild(sliderItemDuplicate);
+						sliderGroup.appendChild(sliderItemDuplicate);
+					}
+
+					var slider = mui('.mui-slider');
+					slider.slider();
 				}
-				
-				var slider = mui('.mui-slider');
-				slider.slider();
 			}
-		}
-		
-		//设置推荐商品
-		function setRecommend(){
-			var recommend = document.getElementById('recommend');
-			mui.each(recommendArray,function(index,item){
-				var li = document.createElement('li');
-				li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
-				li.innerHTML = '<a href="'+item.product_id+'">\
+
+			//设置推荐商品
+			function setRecommend() {
+				var recommend = document.getElementById('recommend');
+				mui.each(recommendArray, function(index, item) {
+					var li = document.createElement('li');
+					li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
+					li.innerHTML = '<a href="' + item.product_id + '">\
 					<div class= "bgDiv">\
-						<img class="mui-media-object" src="http://file.huihoo.com'+item.large_image_url+'"/>\
+						<img class="mui-media-object" src="http://file.huihoo.com' + item.large_image_url + '"/>\
 						<div class="mui-media-body">\
-							<p class="mui-ellipsis-2">'+item.product_name+'</p>\
-							<p class="price-one">¥'+item.product_price.default_price+'</p>\
-							<p class="price-two">¥'+item.product_price.list_price+'</p>\
+							<p class="mui-ellipsis-2">' + item.product_name + '</p>\
+							<p class="price-one">¥' + item.product_price.default_price + '</p>\
+							<p class="price-two">¥' + item.product_price.list_price + '</p>\
 						</div>\
 					</div>\
 				</a>';
-				recommend.appendChild(li);
-			});
-		}
-	</script>
-	
-</body>
+					recommend.appendChild(li);
+				});
+			}
+		</script>
+
+	</body>
+
 </html>

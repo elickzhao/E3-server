@@ -84,20 +84,19 @@
 		<script src="../js/own.js" charset="UTF-8"></script>
 
 		<script type="text/javascript" charset="UTF-8">
-
 			mui.init({
-			  swipeBack: false,
-			  pullRefresh : {
-			    container:'#pullrefresh',
-				down: {
-						height:40,
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						height: 40,
 						callback: pulldownRefresh
-				},
-			    up : {
-			      height:100,
-			      callback :pullupRefresh 
-			    }
-			  }
+					},
+					up: {
+						height: 100,
+						callback: pullupRefresh
+					}
+				}
 			});
 
 			/**
@@ -115,51 +114,36 @@
 			/**
 			 * 上拉加载具体业务实现
 			 */
-//			function pullupRefresh() {
-//				console.log('22222222222222222');
-//					//mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
-//					var table = document.body.querySelector('.mui-table-view');
-//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-//					for (var i = cells.length, len = i + 20; i < len; i++) {
-//						var li = document.createElement('li');
-//						li.className = 'mui-table-view-cell';
-//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-//						table.appendChild(li);
-//					}
-//				setTimeout(function() {	
-//					mui('#pullrefresh').pullRefresh().endPullupToRefresh();
-//				}, 1500);
-//				
-//			}
 
-			function pullupRefresh(){
+			function pullupRefresh() {
 				getGoods();
-	
+
 			}
 			var page = 1;
-			function getGoods(categoryID){
+
+			function getGoods(categoryID) {
 				var id = categoryID = categoryID ? categoryID : pid;
-					ajax_get_product_list({
-						category_id: id,
-						page_size: '2',
-						page_num: page,
-						status: 'normal'
-					},function(data){
-						page++;
-						if(data.meta.pagination.total_pages == 1){
-							mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
-						}else if(data.meta.pagination.total_pages == data.meta.pagination.current_page){
-							mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-						}else{
-							mui('#pullrefresh').pullRefresh().endPullupToRefresh();
-						}
-						productlistSuccess(data);
-						
-					});
-					pid = categoryID;
+				ajax_get_product_list({
+					category_id: id,
+					page_size: '5',
+					page_num: page,
+					status: 'normal'
+				}, function(data) {
+					page++;
+					// 通过返回数据判断是否下拉加载
+					if(data.meta.pagination.total_pages == 1) {
+						mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
+					} else if(data.meta.pagination.total_pages == data.meta.pagination.current_page) {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+					} else {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+					}
+					productlistSuccess(data);
+
+				});
+				pid = categoryID;
 
 			}
-
 
 			var datalist = []; //数据数组
 			var listHtml = []; //listhtml数组
@@ -171,9 +155,7 @@
 				//mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
 				categorydetailWebview = plus.webview.currentWebview();
 				productsList = document.getElementById('productsList');
-				
 
-				
 				//当reday加载之后，因为每次都要重新load所以每次都会调用到这边。
 				//向父页面发送消息获取productID
 				mui.fire(categorydetailWebview.parent(), 'getCategoryID', {});
@@ -181,8 +163,7 @@
 				window.addEventListener('postCategoryID', function(e) {
 					//console.log('收到返回的productID事件，id为' + e.detail.categoryID);
 					//通过id请求数据
-					//XXX 分页和下拉更新没做	
-					getGoods(e.detail.categoryID);		
+					getGoods(e.detail.categoryID);
 				}, false);
 				//添加每个item点击的监听事件
 				mui('#productsList').on('tap', 'a', function() {
@@ -201,8 +182,7 @@
 						product_id: itemID,
 					});
 				});
-				
-				
+
 			});
 
 			//成功查询分类列表下的数据
