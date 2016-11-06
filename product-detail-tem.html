@@ -73,6 +73,7 @@
 						detailsub = self.children()[0];
 					}
 					console.log(JSON.stringify(e.detail));
+					console.log('loaded');
 					detailsub.loadURL(e.detail.id);
 					self.show(e.detail.aniShow);
 				}
@@ -80,7 +81,7 @@
 			
 			//接收子页面获取productid事件，然后返回事件
 			window.addEventListener('getproductid',function(){
-				//console.log('收到获取productid事件')
+				console.log('收到获取productid事件')
 				mui.fire(detailsub,'postproductid',{
 					product_id:product_id
 				});

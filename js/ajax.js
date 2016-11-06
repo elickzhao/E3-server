@@ -11,7 +11,7 @@ document.body.appendChild(load_element);
 
 
 
-	var httpUrl = "http://114.245.83.179/ujwt/public/api/";
+	var httpUrl = "http://api.huanqiujishi.com/";
 	var app_key = "9e304d4e8df1b74cfa009913198428ab";
 	var v = "v1.0";
 	var sign_method = "md5";

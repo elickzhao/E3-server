@@ -98,6 +98,7 @@
 		//关闭启动页面
 		function closeStartScreent(){
 			//创建父子模版完成后关闭启动页面
+			//有了这句,在配置文件里不要自动关闭启动图要不容易造成白屏
 			plus.navigator.closeSplashscreen();
 		}
 		
@@ -129,7 +130,7 @@
 				}
 			});
 		   detailsub = mui.preload({
-				url:'',
+				url:'Home/product-detail-needtem.html',
 				id:'Home/product-detail-needtem.html',
 				styles:{
 					top:'44px',
@@ -265,11 +266,11 @@
 				var categoryID = options.detail.categoryID;
 				
 				
-//				console.log(id);
-//				console.log(href);
-//				console.log(aniShow);
-//				console.log(title);
-//				console.log(categoryID);
+				console.log(id);
+				console.log(href);
+				console.log(aniShow);
+				console.log(title);
+				console.log(categoryID);
 				//需要特殊处理的地方，比如说登陆页面模态，需要有时候被控制在内存中。
 				if (id == 'Mine/login.html') {
 					var loginWebView = plus.webview.getWebviewById(id);
@@ -289,7 +290,8 @@
 							loginWebView.show(aniShow);
 						},false);
 					}
-				}else if(id == 'Home/product-detail-needtem.html'){ 
+				}else if(id == 'Home/product-detail-needtem.html'){
+					console.log('creatnew');
 					var productID = options.detail.product_id;
 					mui.fire(detailTem,'detailTemplate',{
 						id:id,

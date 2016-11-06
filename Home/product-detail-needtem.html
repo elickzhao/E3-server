@@ -177,12 +177,16 @@
 			mui.fire(paredntWebview,'getproductid',{});
 			//监听返回getproductid事件
 			window.addEventListener('postproductid',function(e){
-				//console.log('收到productid--> '+e.detail.product_id);
+				console.log('收到productid--> '+e.detail.product_id);
 				product_id = e.detail.product_id;
 				//像服务器请求
-				ajax_get_product_detail({
-					product_id:product_id
-				});
+				if(product_id != void 0 ){
+					ajax_get_product_detail({
+						product_id:product_id
+					});
+				}else{
+					console.log('product_id为空!!');
+				}
 			},false);
 			
 		});

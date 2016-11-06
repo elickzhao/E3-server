@@ -1,6 +1,10 @@
 {
-	"@platforms": ["android", "iPhone", "iPad"],
-	"id": "H5AA14495",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"@platforms": [
+		"android",
+		"iPhone",
+		"iPad"
+	],
+	"id": "H53B2C1B8",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "环球集市",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
@@ -18,95 +22,96 @@
 	},
 	"permissions": {
 		"Accelerometer": {
-            "description": "访问加速度感应器"
-        },
-        "Audio": {
-            "description": "访问麦克风"
-        },
-        "Cache": {
-            "description": "管理应用缓存"
-        },
-        "Camera": {
-            "description": "访问摄像头"
-        },
-        "Console": {
-            "description": "跟踪调试输出日志"
-        },
-        "Contacts": {
-            "description": "访问系统联系人信息"
-        },
-        "Device": {
-            "description": "访问设备信息"
-        },
-        "Downloader": {
-            "description": "文件下载管理"
-        },
-        "Events": {
-            "description": "应用扩展事件"
-        },
-        "File": {
-            "description": "访问本地文件系统"
-        },
-        "Gallery": {
-            "description": "访问系统相册"
-        },
-        "Geolocation": {
-            "description": "访问位置信息"
-        },
-         "Invocation": {
-            "description": "使用Native.js能力"
-        },
-        "Messaging": {
-            "description": "访问通讯能力"
-        },
-        "Orientation": {
-            "description": "访问方向感应器"
-        },
-        "Proximity": {
-            "description": "访问距离感应器"
-        },
-        "Storage": {
-            "description": "管理应用本地数据"
-        },
-        
-        "Uploader": {
-            "description": "管理文件上传任务"
-        },
-        "Runtime": {
-            "description": "访问运行期环境"
-        },
-        "XMLHttpRequest": {
-            "description": "跨域网络访问"
-        },
-        "Zip": {
-            "description": "文件压缩与解压缩"
-        },
-        "Barcode": {
-            "description": "管理二维码扫描插件"
-        },
-        "Maps": {
-            "description": "管理地图插件"
-        },
-        "Speech": {
-            "description": "管理语音识别插件"
-        },
-        "Webview":{
-        	"description": "窗口管理"
-        },
-        "NativeUI":{
-        	"description": "原生UI控件"
-        },
-        "Navigator":{
-        	"description": "浏览器信息"
-        },
-        "NativeObj":{
-        	"description": "原生对象"
-        }
+			"description": "访问加速度感应器"
+		},
+		"Audio": {
+			"description": "访问麦克风"
+		},
+		"Cache": {
+			"description": "管理应用缓存"
+		},
+		"Camera": {
+			"description": "访问摄像头"
+		},
+		"Console": {
+			"description": "跟踪调试输出日志"
+		},
+		"Contacts": {
+			"description": "访问系统联系人信息"
+		},
+		"Device": {
+			"description": "访问设备信息"
+		},
+		"Downloader": {
+			"description": "文件下载管理"
+		},
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"File": {
+			"description": "访问本地文件系统"
+		},
+		"Gallery": {
+			"description": "访问系统相册"
+		},
+		"Geolocation": {
+			"description": "访问位置信息"
+		},
+		"Invocation": {
+			"description": "使用Native.js能力"
+		},
+		"Messaging": {
+			"description": "访问通讯能力"
+		},
+		"Orientation": {
+			"description": "访问方向感应器"
+		},
+		"Proximity": {
+			"description": "访问距离感应器"
+		},
+		"Storage": {
+			"description": "管理应用本地数据"
+		},
+
+		"Uploader": {
+			"description": "管理文件上传任务"
+		},
+		"Runtime": {
+			"description": "访问运行期环境"
+		},
+		"XMLHttpRequest": {
+			"description": "跨域网络访问"
+		},
+		"Zip": {
+			"description": "文件压缩与解压缩"
+		},
+		"Barcode": {
+			"description": "管理二维码扫描插件"
+		},
+		"Maps": {
+			"description": "管理地图插件"
+		},
+		"Speech": {
+			"description": "管理语音识别插件"
+		},
+		"Webview": {
+			"description": "窗口管理"
+		},
+		"NativeUI": {
+			"description": "原生UI控件"
+		},
+		"Navigator": {
+			"description": "浏览器信息"
+		},
+		"NativeObj": {
+			"description": "原生对象"
+		}
 	},
 	"plus": {
 		"splashscreen": {
-			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": true,"delay":"0"
+			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": true,
+			"delay": "0"
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
@@ -124,9 +129,40 @@
 				"keystore": "",/*Android应用打包使用的密钥库文件*/
 				"password": "",/*Android应用打包使用密钥库中证书的密码*/
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
-				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.SEND_SMS\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"android.permission.WRITE_SMS\"/>","<uses-permission android:name=\"android.permission.READ_SMS\"/>"]
+				"permissions": [
+					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+					"<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.CAMERA\"/>",
+					"<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+					"<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+					"<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.SEND_SMS\"/>",
+					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+					"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+					"<uses-feature android:name=\"android.hardware.camera\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_SMS\"/>",
+					"<uses-permission android:name=\"android.permission.READ_SMS\"/>"
+				]
 			},
-			"orientation": ["portrait-primary", "portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"orientation": [
+				"portrait-primary",
+				"portrait-secondary"
+			],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
 			"icons": {
 				"ios": {
 					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
@@ -139,7 +175,9 @@
 						"spotlight-retina": "unpackage/res/icons/58x58.png", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
 						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
 						"settings-normal": "unpackage/res/icons/29x29.png", /*iPhone设置页面程序图标，分辨率：29x29*/
-						"settings-retina": "unpackage/res/icons/58x58.png","retina8":"unpackage/res/icons/180x180.png","settings-retina8":"unpackage/res/icons/87x87.png"
+						"settings-retina": "unpackage/res/icons/58x58.png",
+						"retina8": "unpackage/res/icons/180x180.png",
+						"settings-retina8": "unpackage/res/icons/87x87.png"
 					},
 					"ipad": {
 						"normal": "unpackage/res/icons/72x72.png", /*iPad普通屏幕程序图标，分辨率：72x72*/
@@ -187,304 +225,304 @@
 					"xhdpi": "C:/Users/elick/Desktop/afficheimg/720.png", /*720P高分屏启动图片，分辨率：720x1242*/
 					"xxhdpi": "C:/Users/elick/Desktop/afficheimg/1080.png"
 				}
-			}
+			},
+			"debug": true
 		}
 	},
 	"dependencies": {
-	  "pages": {
-	    "baritemHtml/home.html": {
-	      "resources": [
-	        "js/load.js",
-	        "js/md5.js",
-	        "css/own.css",
-	        "js/mui.min.js",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "js/own.js",
-	        "js/ajax.js",
-	        "js/request.addr.js",
-	        "img/jump.gif",
-	        "img/index3.jpg",
-	        "img/index1.jpg",
-	        "img/index2.jpg",
-	        "img/index4.png",
-	        "fonts/mui.ttf",
-	        "img/1476836683497479302.png",
-	        "img/1476836695326558918.png",
-	        "img/1476836666640248800.png",
-	        "img/1476836656619071921.png",
-	        "img/1476836629523360144.png",
-	        "img/1476836705546595344.png",
-	        "img/1476836643699422761.png",
-	        "img/1476840805338062377.jpg",
-	        "img/1476295086202527219.jpg",
-	        "img/1476295052282433318.jpg",
-	        "img/1476295071936906956.jpg",
-	        "img/bg.jpeg",
-	        "fonts/iconfont.ttf"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "index.html": {
-	      "resources": [
-	        "baritemHtml/home.html",
-	        "css/own.css",
-	        "js/mui.min.js",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "js/ajax.js",
-	        "fonts/iconfont.ttf",
-	        "baritemHtml/category.html",
-	        "fonts/mui.ttf"
-	      ],
-	      "refer": [
-	        "template-main.html",
-	        "baritemHtml/mine.html",
-	        "baritemHtml/xinyuandan.html",
-	        "Mine/login.html",
-	        "baritemHtml/cart.html",
-	        "product-detail-tem.html",
-	        "category/category-detail-needtem.html",
-	        "Home/product-detail-needtem.html",
-	        "baritemHtml/home.html",
-	        "baritemHtml/category.html"
-	      ],
-	      "priority": 0
-	    },
-	    "baritemHtml/mine.html": {
-	      "resources": [
-	        "img/bg.jpeg",
-	        "css/own.css",
-	        "js/mui.min.js",
-	        "fonts/mui.ttf",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "js/load.js",
-	        "fonts/iconfont.ttf",
-	        "js/md5.js",
-	        "js/request.addr.js",
-	        "img/touxiang.jpg",
-	        "js/own.js",
-	        "js/ajax.js"
-	      ],
-	      "refer": [
-	        "Mine/my-dingdan-needtem.html",
-	        "Mine/change-address-needtem.html",
-	        "Mine/changeEmail-needtem.html",
-	        "Mine/changepsd-needtem.html"
-	      ],
-	      "priority": 0
-	    },
-	    "Mine/login.html": {
-	      "resources": [
-	        "js/own.js",
-	        "fonts/mui.ttf",
-	        "css/own.css",
-	        "js/mui.min.js",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "js/ajax.js",
-	        "js/load.js",
-	        "fonts/iconfont.ttf",
-	        "js/md5.js",
-	        "js/request.addr.js"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "baritemHtml/cart.html": {
-	      "resources": [
-	        "js/wl_ajax.js",
-	        "css/own.css",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "js/load.js",
-	        "js/md5.js",
-	        "js/mui.min.js",
-	        "fonts/mui.ttf",
-	        "fonts/iconfont.ttf",
-	        "js/own.js",
-	        "js/ajax.js"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "product-detail-tem.html": {
-	      "resources": [
-	        "img/jump.gif",
-	        "css/own.css",
-	        "js/mui.min.js",
-	        "fonts/mui.ttf",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "js/ajax.js",
-	        "js/own.js",
-	        "fonts/iconfont.ttf"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "baritemHtml/xinyuandan.html": {
-	      "resources": [
-	        "css/own.css",
-	        "js/mui.min.js",
-	        "css/mui.min.css",
-	        "js/load.js",
-	        "js/md5.js",
-	        "js/request.addr.js",
-	        "fonts/mui.ttf",
-	        "js/own.js",
-	        "js/ajax.js"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "baritemHtml/category.html": {
-	      "resources": [
-	        "js/mui.min.js",
-	        "css/mui.min.css",
-	        "js/load.js",
-	        "js/md5.js",
-	        "js/request.addr.js",
-	        "js/own.js",
-	        "js/ajax.js",
-	        "fonts/mui.ttf"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "category/category-detail-needtem.html": {
-	      "resources": [
-	        "js/own.js",
-	        "js/mui.min.js",
-	        "js/ajax.js",
-	        "js/load.js",
-	        "js/md5.js",
-	        "css/own.css",
-	        "img/bg.jpeg",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "fonts/mui.ttf",
-	        "img/jump.gif"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "Home/product-detail-needtem.html": {
-	      "resources": [
-	        "js/own.js",
-	        "js/mui.min.js",
-	        "js/ajax.js",
-	        "js/load.js",
-	        "js/md5.js",
-	        "css/own.css",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "img/touxiang.jpg",
-	        "fonts/mui.ttf",
-	        "fonts/iconfont.ttf",
-	        "img/3.jpg"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "template-main.html": {
-	      "resources": [
-	        "css/own.css",
-	        "js/mui.min.js",
-	        "fonts/mui.ttf",
-	        "css/iconfont.css",
-	        "css/mui.min.css",
-	        "img/jump.gif",
-	        "fonts/iconfont.ttf"
-	      ],
-	      "refer": [],
-	      "priority": 0
-	    },
-	    "Mine/my-dingdan-needtem.html": {
-	      "href": "Mine/my-dingdan-needtem.html",
-	      "resources": [
-	        "css/mui.min.css",
-	        "fonts/mui.ttf",
-	        "css/own.css",
-	        "js/mui.min.js",
-	        "js/own.js"
-	      ],
-	      "priority": 8,
-	      "refer": []
-	    },
-	    "Mine/address.html": {
-	      "href": "Mine/address.html",
-	      "resources": [
-	        "css/mui.min.css",
-	        "fonts/mui.ttf",
-	        "css/own.css",
-	        "css/iconfont.css",
-	        "fonts/iconfont.ttf",
-	        "css/mui.picker.min.css",
-	        "js/mui.min.js",
-	        "js/city.data-3.js",
-	        "js/mui.picker.min.js",
-	        "js/own.js"
-	      ],
-	      "priority": 9,
-	      "refer": []
-	    },
-	    "Mine/change-address-needtem.html": {
-	      "href": "Mine/change-address-needtem.html",
-	      "resources": [
-	        "css/mui.min.css",
-	        "fonts/mui.ttf",
-	        "css/own.css",
-	        "css/iconfont.css",
-	        "fonts/iconfont.ttf",
-	        "js/mui.min.js",
-	        "js/own.js"
-	      ],
-	      "refer": [
-	        "Mine/address.html"
-	      ],
-	      "priority": 9
-	    },
-	    "Mine/changeEmail-needtem.html": {
-	      "href": "Mine/changeEmail-needtem.html",
-	      "priority": 10,
-	      "resources": [],
-	      "refer": []
-	    },
-	    "Mine/changepsd-needtem.html": {
-	      "href": "Mine/changepsd-needtem.html",
-	      "resources": [
-	        "css/mui.min.css",
-	        "fonts/mui.ttf",
-	        "css/own.css",
-	        "css/iconfont.css",
-	        "fonts/iconfont.ttf",
-	        "js/mui.min.js",
-	        "js/own.js",
-	        "js/ajax.js"
-	      ],
-	      "priority": 11,
-	      "refer": []
-	    }
-	  },
-	  "idle": {
-	    "resources": [
-	      "js/mui.pullToRefresh.js",
-	      "js/mui.min(2.3.0).js",
-	      "js/mui.pullToRefresh.material.js",
-	      "Mine/remenberpsd-needtem.html",
-	      "css/mui.picker.all.css",
-	      "css/mui.poppicker.css",
-	      "js/mui.js",
-	      "css/mui.picker.css",
-	      "css/mui.css",
-	      "img/1476836674829869171.png",
-	      "img/bg.png",
-	      "Mine/register-needtem.html"
-	    ]
-	  }
+		"pages": {
+			"baritemHtml/home.html": {
+				"resources": [
+					"js/load.js",
+					"js/md5.js",
+					"css/own.css",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/own.js",
+					"js/ajax.js",
+					"js/request.addr.js",
+					"img/jump.gif",
+					"img/index3.jpg",
+					"img/index1.jpg",
+					"img/index2.jpg",
+					"img/index4.png",
+					"fonts/mui.ttf",
+					"img/1476836683497479302.png",
+					"img/1476836695326558918.png",
+					"img/1476836666640248800.png",
+					"img/1476836656619071921.png",
+					"img/1476836629523360144.png",
+					"img/1476836705546595344.png",
+					"img/1476836643699422761.png",
+					"img/1476840805338062377.jpg",
+					"img/1476295086202527219.jpg",
+					"img/1476295052282433318.jpg",
+					"img/1476295071936906956.jpg",
+					"img/bg.jpeg",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"index.html": {
+				"resources": [
+					"baritemHtml/home.html",
+					"css/own.css",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/ajax.js",
+					"fonts/iconfont.ttf",
+					"baritemHtml/category.html",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"template-main.html",
+					"baritemHtml/mine.html",
+					"baritemHtml/xinyuandan.html",
+					"Mine/login.html",
+					"baritemHtml/cart.html",
+					"product-detail-tem.html",
+					"category/category-detail-needtem.html",
+					"Home/product-detail-needtem.html"
+				],
+				"priority": 0
+			},
+			"baritemHtml/mine.html": {
+				"resources": [
+					"img/bg.jpeg",
+					"css/own.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/load.js",
+					"fonts/iconfont.ttf",
+					"js/md5.js",
+					"js/request.addr.js",
+					"img/touxiang.jpg",
+					"js/own.js",
+					"js/ajax.js"
+				],
+				"refer": [
+					"Mine/my-dingdan-needtem.html",
+					"Mine/change-address-needtem.html",
+					"Mine/changeEmail-needtem.html",
+					"Mine/changepsd-needtem.html"
+				],
+				"priority": 0
+			},
+			"Mine/login.html": {
+				"resources": [
+					"js/own.js",
+					"fonts/mui.ttf",
+					"css/own.css",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/ajax.js",
+					"js/load.js",
+					"fonts/iconfont.ttf",
+					"js/md5.js",
+					"js/request.addr.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"baritemHtml/cart.html": {
+				"resources": [
+					"js/wl_ajax.js",
+					"css/own.css",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/load.js",
+					"js/md5.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"fonts/iconfont.ttf",
+					"js/own.js",
+					"js/ajax.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"product-detail-tem.html": {
+				"resources": [
+					"img/jump.gif",
+					"css/own.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/ajax.js",
+					"js/own.js",
+					"fonts/iconfont.ttf",
+					"Home/product-detail-needtem.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"baritemHtml/xinyuandan.html": {
+				"resources": [
+					"css/own.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/load.js",
+					"js/md5.js",
+					"js/request.addr.js",
+					"fonts/mui.ttf",
+					"js/own.js",
+					"js/ajax.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"baritemHtml/category.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/load.js",
+					"js/md5.js",
+					"js/request.addr.js",
+					"js/own.js",
+					"js/ajax.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"category/category-detail-needtem.html": {
+				"resources": [
+					"js/own.js",
+					"js/mui.min.js",
+					"js/ajax.js",
+					"js/load.js",
+					"js/md5.js",
+					"css/own.css",
+					"img/bg.jpeg",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"img/jump.gif"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Home/product-detail-needtem.html": {
+				"resources": [
+					"js/own.js",
+					"js/mui.min.js",
+					"js/ajax.js",
+					"js/load.js",
+					"js/md5.js",
+					"css/own.css",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"img/touxiang.jpg",
+					"fonts/mui.ttf",
+					"fonts/iconfont.ttf",
+					"img/3.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template-main.html": {
+				"resources": [
+					"css/own.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"img/jump.gif",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Mine/my-dingdan-needtem.html": {
+				"href": "Mine/my-dingdan-needtem.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/own.css",
+					"js/mui.min.js",
+					"js/own.js"
+				],
+				"priority": 8,
+				"refer": []
+			},
+			"Mine/address.html": {
+				"href": "Mine/address.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/own.css",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf",
+					"css/mui.picker.min.css",
+					"js/mui.min.js",
+					"js/city.data-3.js",
+					"js/mui.picker.min.js",
+					"js/own.js"
+				],
+				"priority": 9,
+				"refer": []
+			},
+			"Mine/change-address-needtem.html": {
+				"href": "Mine/change-address-needtem.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/own.css",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf",
+					"js/mui.min.js",
+					"js/own.js"
+				],
+				"refer": [
+					"Mine/address.html"
+				],
+				"priority": 9
+			},
+			"Mine/changeEmail-needtem.html": {
+				"href": "Mine/changeEmail-needtem.html",
+				"priority": 10,
+				"resources": [],
+				"refer": []
+			},
+			"Mine/changepsd-needtem.html": {
+				"href": "Mine/changepsd-needtem.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/own.css",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf",
+					"js/mui.min.js",
+					"js/own.js",
+					"js/ajax.js"
+				],
+				"priority": 11,
+				"refer": []
+			}
+		},
+		"idle": {
+			"resources": [
+				"js/mui.pullToRefresh.js",
+				"js/mui.min(2.3.0).js",
+				"js/mui.pullToRefresh.material.js",
+				"Mine/remenberpsd-needtem.html",
+				"css/mui.picker.all.css",
+				"css/mui.poppicker.css",
+				"js/mui.js",
+				"css/mui.picker.css",
+				"css/mui.css",
+				"img/1476836674829869171.png",
+				"img/bg.png",
+				"Mine/register-needtem.html"
+			]
+		}
 	},
-	"unpackage":[]
+	"unpackage": []
 }

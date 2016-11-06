@@ -117,7 +117,8 @@
       "css/iconfont.css",
       "css/mui.min.css",
       "js/ajax.js",
-      "js/own.js"
+      "js/own.js",
+      "Home/product-detail-needtem.html"
     ],
     "refer": []
   },

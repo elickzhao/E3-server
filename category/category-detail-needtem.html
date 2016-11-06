@@ -161,7 +161,7 @@
 				mui.fire(categorydetailWebview.parent(), 'getCategoryID', {});
 				//紧接着获取父页面返回的productid事件
 				window.addEventListener('postCategoryID', function(e) {
-					//console.log('收到返回的productID事件，id为' + e.detail.categoryID);
+					console.log('收到返回的productID事件，id为' + e.detail.categoryID);
 					//通过id请求数据
 					getGoods(e.detail.categoryID);
 				}, false);
@@ -169,8 +169,9 @@
 				mui('#productsList').on('tap', 'a', function() {
 					var item = this;
 					var itemID = this.getAttribute('href');
-					var indexWebview = plus.webview.getWebviewById('HBuilder');
+					var indexWebview = plus.webview.getWebviewById(plus.runtime.appid);	// 就是这里获取入口页面,首页.才能触发首页的事件,原来写的HBuilder不知道是不是以前的获取方法
 					var anishow = getaniShow();
+					console.log('点击了');
 					//弹入分类商品列表
 					mui.fire(indexWebview, 'newWebView', {
 						id: 'Home/product-detail-needtem.html',
