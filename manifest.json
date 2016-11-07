@@ -387,7 +387,8 @@
 					"js/request.addr.js",
 					"js/own.js",
 					"js/ajax.js",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"img/default_circle_image.png"
 				],
 				"refer": [],
 				"priority": 0

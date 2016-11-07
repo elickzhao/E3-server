@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="white">
-	<title>E3</title>
+	<title>首页入口页面</title>
 
 	<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
@@ -70,6 +70,18 @@
 		var detailsub;
 		mui.plusReady(function() {
 			
+			//XXX 新增的引导页面 就是第一次打开app的广告页 目前看来还不起作用
+			var first = plus.storage.getItem("IsFrist");
+				if (!first) {
+					mui.openWindow({
+						url: "guide.html",
+						id: "guide",
+						waiting: {
+							autoShow: false
+						}
+					});
+				} 
+						
 			//改变statusbar
 			plus.navigator.setStatusBarBackground('#41cea9');
 			navtitle = document.getElementById('nav-title');
