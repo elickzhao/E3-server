@@ -6,7 +6,7 @@ document.body.appendChild(new_element);
 
 var load_element=document.createElement("script");
 load_element.setAttribute("type","text/javascript");
-load_element.setAttribute("src","../js/load.js");// 在这里引入了a.js
+load_element.setAttribute("src","../js/load.js");//XXX 这个在首页会报错 因为是同级的 但是其他二级页面也需要这个 所以还是写个绝对路径为好
 document.body.appendChild(load_element);
 
 

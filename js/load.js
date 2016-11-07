@@ -8,7 +8,7 @@
 	 		dataload.style.position = 'absolute';
 	 		dataload.style.width = '100%';
 	 		dataload.style.textAlign = 'center';
-			dataload.style.top = '200px';
+			dataload.style.top = '180px';
 			dataload
 	 		
 	 		dataload.style.zIndex = 1000000;
@@ -17,7 +17,7 @@
 	 		
 	 		var span = document.createElement('span');
 	 		span.innerHTML = '<a>\
-				<span ><img src="../img/jump.gif" style="max-width:2em; height:auto;"/></span>\
+				<span ><img src="../img/jump.gif" style="max-width:8em; height:auto;"/></span>\
 			</a>\
 			<br />\
 			<span>加载中...</span>';

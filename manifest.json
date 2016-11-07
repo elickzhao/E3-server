@@ -285,7 +285,8 @@
 					"baritemHtml/cart.html",
 					"product-detail-tem.html",
 					"category/category-detail-needtem.html",
-					"Home/product-detail-needtem.html"
+					"Home/product-detail-needtem.html",
+					"guide.html"
 				],
 				"priority": 0
 			},
@@ -506,6 +507,19 @@
 				],
 				"priority": 11,
 				"refer": []
+			},
+			"guide.html": {
+				"resources": [
+					"img/start2.png",
+					"img/start3.png",
+					"img/start1.png",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"index.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {

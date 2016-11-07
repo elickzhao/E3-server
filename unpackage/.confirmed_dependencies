@@ -52,7 +52,8 @@
 			"baritemHtml/cart.html",
 			"product-detail-tem.html",
 			"category/category-detail-needtem.html",
-			"Home/product-detail-needtem.html"
+			"Home/product-detail-needtem.html",
+			"guide.html"
 		]
 	},
 	"baritemHtml/mine.html": {
@@ -120,7 +121,9 @@
 			"js/own.js",
 			"Home/product-detail-needtem.html"
 		],
-		"refer": []
+		"refer": [
+			"Home/product-detail-needtem.html"
+		]
 	},
 	"baritemHtml/xinyuandan.html": {
 		"resources": [
@@ -251,5 +254,17 @@
 		],
 		"refer": [],
 		"priority": 0
+	},
+	"guide.html": {
+		"resources": [
+			"img/start2.png",
+			"img/start3.png",
+			"img/start1.png",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"index.html"
+		]
 	}
 }
