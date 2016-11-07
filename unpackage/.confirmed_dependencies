@@ -40,7 +40,8 @@
 			"css/mui.min.css",
 			"js/ajax.js",
 			"fonts/iconfont.ttf",
-			"baritemHtml/category.html"
+			"baritemHtml/category.html",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"baritemHtml/home.html",
