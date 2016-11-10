@@ -115,22 +115,24 @@
 			touxiangword = document.getElementById('touxiangword');
 			
 			//检测是否已经登录
-			if (!localStorage.getItem('user')) {
-				logoutBtn.style.display = 'none';
-				trueimg.style.display = 'none';
-				touxiangimg.style.display = 'inline';
-				touxiangword.style.color = 'indianred';
-			}else {
-				logoutBtn.style.display = 'block';
-				trueimg.style.display = 'inline';
-				touxiangimg.style.display = 'none';
-				var user = JSON.parse(localStorage.getItem('user'));
-//				trueimg.src = user.website_logo;
-				trueimg.src = '../img/touxiang.jpg';
-				touxiangword.innerText = user.website_name;
-				touxiangword.style.color = 'black';
-			}
-			
+			//XXX 这里登录是有问题的
+			console.error('这里登录存在问题');
+//			if (!localStorage.getItem('user')) {
+//				logoutBtn.style.display = 'none';
+//				trueimg.style.display = 'none';
+//				touxiangimg.style.display = 'inline';
+//				touxiangword.style.color = 'indianred';
+//			}else {
+//				logoutBtn.style.display = 'block';
+//				trueimg.style.display = 'inline';
+//				touxiangimg.style.display = 'none';
+//				var user = JSON.parse(localStorage.getItem('user'));
+////				trueimg.src = user.website_logo;
+//				trueimg.src = '../img/touxiang.jpg';
+//				touxiangword.innerText = user.website_name;
+//				touxiangword.style.color = 'black';
+//			}
+//			
 			mui('.mui-table-view').on('tap','a',function(){
 				var id = this.getAttribute('href');
 				var href = this.href;

@@ -54,7 +54,9 @@
 			"product-detail-tem.html",
 			"category/category-detail-needtem.html",
 			"Home/product-detail-needtem.html",
-			"guide.html"
+			"guide.html",
+			"Mine/my-dingdan-needtem.html",
+			"Mine/change-address-needtem.html"
 		]
 	},
 	"baritemHtml/mine.html": {

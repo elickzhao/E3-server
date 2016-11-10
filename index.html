@@ -25,57 +25,7 @@
 	</head>
 
 	<body>
-		
-		<!-- 主界面移动、菜单不动 -->
-		<div class="mui-off-canvas-wrap mui-draggable">
-		  <!-- 菜单容器 -->
-		  <aside class="mui-off-canvas-left" id="offCanvasSide">
-		    <div class="mui-scroll-wrapper">
-		      <div class="mui-scroll">
-		        <!-- 菜单具体展示内容 -->
-		        	
-		      </div>
-		    </div>
-		  </aside>
-		  <!-- 主页面容器 -->
-		  <div class="mui-inner-wrap">
-		    <!-- 主页面标题 -->
-		    <header class="mui-bar mui-bar-nav">
-		      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"  href="#offCanvasSide" ></a>
-		      <h1 class="mui-title">标题</h1>
-		    </header>
-		    <nav class="mui-bar mui-bar-tab">
-			    <a class="mui-tab-item mui-active">
-			        <span class="mui-icon mui-icon-home"></span>
-			        <span class="mui-tab-label">首页</span>
-			    </a>
-			    <a class="mui-tab-item">
-			        <span class="mui-icon mui-icon-phone"></span>
-			        <span class="mui-tab-label">电话</span>
-			    </a>
-			    <a class="mui-tab-item">
-			        <span class="mui-icon mui-icon-email"></span>
-			        <span class="mui-tab-label">邮件</span>
-			    </a>
-			    <a class="mui-tab-item">
-			        <span class="mui-icon mui-icon-gear"></span>
-			        <span class="mui-tab-label">设置</span>
-			    </a>
-			</nav>
-		    <div class="mui-content mui-scroll-wrapper">
-		      <div class="mui-scroll" id="main-content">
-		        <!-- 主界面具体展示内容 -->
-		         	dddddd
-		      </div>
-		    </div> 
-		    <div class="mui-off-canvas-backdrop"></div>
-		  </div> 
-		</div>
-		
-		
-		
-		
-		<!--<header class="mui-bar mui-bar-nav own-main-background-color">
+		<header class="mui-bar mui-bar-nav own-main-background-color">
 			<h1 id="nav-title" class="mui-title">首页</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
@@ -99,14 +49,28 @@
 				<span class="mui-icon iconfont icon-wode"></span>
 				<span class="mui-tab-label">我的</span>
 			</a>
-		</nav>-->
+		</nav>
 
 		<script src="js/mui.min.js" charset="UTF-8"></script>
 		<script src="js/ajax.js" charset="UTF-8"></script>
 		<script type="text/javascript" charset="UTF-8">
 			mui.init({
-				swipeBack: false
+				swipeBack: false,
+				beforeback: back
 			});
+
+			function back() {
+				if(showMenu) {
+					//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
+					closeMenu();
+					return false;
+				} else {
+					//菜单处于隐藏状态，执行返回时，要先close菜单页面，然后继续执行mui.back逻辑关闭主窗口；
+					menu.close('none');
+					return true;
+				}
+			}
+
 			var mainWebView; //当前主webview
 			var navtitle;
 			var curTabItem; //当前被选中tabitem
@@ -130,7 +94,23 @@
 						}
 					});
 				}
-
+			
+			//  预加载侧边栏页面
+			//setTimeout的目的是等待窗体动画结束后，再执行create webview操作，避免资源竞争，导致窗口动画不流畅；
+			setTimeout(function () {
+				//侧滑菜单默认隐藏，这样可以节省内存；
+				menu = mui.preload({
+					id: 'offcanvas-drag-right-plus-menu',
+					url: 'offcanvas-drag-right-plus-menu.html',
+					styles: {
+						left: 0,
+						width: '70%',
+						zindex: 9997
+					}
+				});
+			},300);				
+				
+				
 
 				//改变statusbar
 				plus.navigator.setStatusBarBackground('#41cea9');
