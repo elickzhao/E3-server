@@ -56,7 +56,8 @@
 			"Home/product-detail-needtem.html",
 			"guide.html",
 			"Mine/my-dingdan-needtem.html",
-			"Mine/change-address-needtem.html"
+			"Mine/change-address-needtem.html",
+			"offcanvas-drag-right-plus-menu.html"
 		]
 	},
 	"baritemHtml/mine.html": {
