@@ -419,7 +419,14 @@
 			 */
 			function openMenu() {
 				if(!showMenu) {
-					//遮罩子页面
+					//遮罩子页面	按照文档说法应该子页面也遮罩为啥我这个不行呢
+/*
+* mask: (String 类型 )窗口的遮罩
+*用于设置Webview窗口的遮罩层样式，遮罩层会覆盖Webview中所有内容，包括子webview，
+* 并且截获webview的所有触屏事件，此时Webview窗口的点击操作会触发maskClick事件。 
+* 字符串类型，可取值： rgba格式字符串，定义纯色遮罩层样式，
+* 如"rgba(0,0,0,0.5)"，表示黑色半透明； "none"，表示不使用遮罩层； 默认值为"none"，即无遮罩层。
+*/
 					curSub.setStyle({
 						mask:'rgba(0,0,0,.3)'
 					})
@@ -454,7 +461,7 @@
 				if(showMenu) {
 					//关闭遮罩；
 					curSub.setStyle({
-						mask:'rgba(0,0,0,0)'
+						mask:'none'
 					});
 					//主窗体开始侧滑；
 					mainWebView.setStyle({
@@ -475,21 +482,21 @@
 			
 			//XXX 这个不太知道什么意思
 			//变换侧滑动画移动效果；
-			mui('.mui-input-group').on('change', 'input', function() {
-				if(this.checked) {
-					//仅主窗口移动的时候，menu页面的zindex值要低一点；
-					menu.setStyle({
-						left: '0',
-						zindex: 9997
-					});
-					if(mode == 'all-move') {
-						menu.setStyle({
-							left: '0%'
-						});
-					}
-					mode = 'main-move';
-				}
-			});
+//			mui('.mui-input-group').on('change', 'input', function() {
+//				if(this.checked) {
+//					//仅主窗口移动的时候，menu页面的zindex值要低一点；
+//					menu.setStyle({
+//						left: '0',
+//						zindex: 9997
+//					});
+//					if(mode == 'all-move') {
+//						menu.setStyle({
+//							left: '0%'
+//						});
+//					}
+//					mode = 'main-move';
+//				}
+//			});
 			
 			//XXX z这个看来得放子页面了 不过子页面好多个啊
 //			curSub.addEventListener('maskClick',function(){
