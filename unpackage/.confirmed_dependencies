@@ -270,5 +270,10 @@
 		"refer": [
 			"index.html"
 		]
+	},
+	"offcanvas-drag-right-plus-menu.html": {
+		"resources": [
+			"js/mui.min.js"
+		]
 	}
 }

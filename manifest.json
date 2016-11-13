@@ -523,6 +523,13 @@
 					"index.html"
 				],
 				"priority": 0
+			},
+			"offcanvas-drag-right-plus-menu.html": {
+				"resources": [
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
