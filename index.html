@@ -59,23 +59,10 @@
 
 			mui.init({
 				swipeBack: false,
-				beforeback: back // 退出之前进行处理 如果菜单栏打开就关闭菜单栏 而不是退出程序
+				//beforeback: back //这个beforeback 不好使不知道为啥
 			});
 
-			function back() {
-				if(showMenu) {
-					//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
-					closeMenu();
-					return false;
-				} else {
-					//菜单处于隐藏状态，执行返回时，要先close菜单页面，然后继续执行mui.back逻辑关闭主窗口；
-					menu.close('none');
-					return true;
-				}
-			}
-
 			var mainWebView; //当前主webview
-			var curSub;		// 当前显示的子页面  为了屏蔽罩 可以想个办法写个函数
 			var navtitle;
 			var curTabItem; //当前被选中tabitem
 			var barItemUrl = ['baritemHtml/home.html', 'baritemHtml/category.html', 'baritemHtml/xinyuandan.html', 'baritemHtml/cart.html', 'baritemHtml/mine.html'];
@@ -137,6 +124,11 @@
 				} else {
 					closeStartScreent();
 				}
+				
+				mainWebView.addEventListener('maskClick', closeMenu);
+				mainWebView.addEventListener("swipeleft", function(){
+					console.log('333');
+				});
 			});
 
 			//关闭启动页面
@@ -218,7 +210,6 @@
 					//XXX 添加新页面处
 					mainWebView.append(barItemWebView[i]);
 				}
-				curSub = barItemWebView[0];
 				barItemWebView[0].show();
 			}
 			//为每个tabitem添加监听
@@ -246,7 +237,6 @@
 						barItemWebView[i].hide();
 					}
 				}
-				curSub = barItemWebView[index];
 				barItemWebView[index].show();
 			}
 
@@ -401,48 +391,42 @@
 			//两次点击返回
 			var first = null;
 			mui.back = function() {
-				//首次按键
-				if(!first) {
-					first = new Date().getTime();
-					mui.toast("再按一次退出");
-					setTimeout(function() {
-						first = null;
-					}, 1000);
-				} else {
-					if(new Date().getTime() - first < 1000) {
-						plus.runtime.quit();
-					}
+					if(showMenu) {
+						closeMenu();
+						return false;
+					} else {
+						//首次按键，提示‘再按一次退出应用’
+						if(!first) {
+							first = new Date().getTime();
+							mui.toast('再按一次退出应用');
+							setTimeout(function() {
+								first = null;
+							}, 1000);
+						} else {
+							if(new Date().getTime() - first < 1000) {
+								plus.runtime.quit();
+							}
+						}
+					} 
 				}
-			}
-			/**
-			 * 显示菜单菜单
-			 */
+				/**
+				 * 显示菜单菜单
+				 */
 			function openMenu() {
 				if(!showMenu) {
-					//遮罩子页面	按照文档说法应该子页面也遮罩为啥我这个不行呢
-/*
-* mask: (String 类型 )窗口的遮罩
-*用于设置Webview窗口的遮罩层样式，遮罩层会覆盖Webview中所有内容，包括子webview，
-* 并且截获webview的所有触屏事件，此时Webview窗口的点击操作会触发maskClick事件。 
-* 字符串类型，可取值： rgba格式字符串，定义纯色遮罩层样式，
-* 如"rgba(0,0,0,0.5)"，表示黑色半透明； "none"，表示不使用遮罩层； 默认值为"none"，即无遮罩层。
-*/
-					curSub.setStyle({
-						mask:'rgba(0,0,0,.3)'
-					})
 					//侧滑菜单处于隐藏状态，则立即显示出来；
 					//显示完毕后，根据不同动画效果移动窗体；
 					menu.show('none', 0, function() {
-						//这里需要修改 因为当期窗体的变量不是main
 						mainWebView.setStyle({
 							left: '70%',
+							mask: 'rgba(0,0,0,.3)',
 							transition: {
-								duration: 150	//动画持续时间
+								duration: 150 //动画持续时间
 							}
 						});
 					});
 					//显示遮罩
-					mask.show();
+					//mask.show();
 					showMenu = true;
 				}
 			}
@@ -459,13 +443,10 @@
 			 */
 			function _closeMenu() {
 				if(showMenu) {
-					//关闭遮罩；
-					curSub.setStyle({
-						mask:'none'
-					});
 					//主窗体开始侧滑；
 					mainWebView.setStyle({
 						left: '0%',
+						mask: 'none',
 						transition: {
 							duration: 150
 						}
@@ -479,29 +460,7 @@
 					showMenu = false;
 				}
 			}
-			
-			//XXX 这个不太知道什么意思
-			//变换侧滑动画移动效果；
-//			mui('.mui-input-group').on('change', 'input', function() {
-//				if(this.checked) {
-//					//仅主窗口移动的时候，menu页面的zindex值要低一点；
-//					menu.setStyle({
-//						left: '0',
-//						zindex: 9997
-//					});
-//					if(mode == 'all-move') {
-//						menu.setStyle({
-//							left: '0%'
-//						});
-//					}
-//					mode = 'main-move';
-//				}
-//			});
-			
-			//XXX z这个看来得放子页面了 不过子页面好多个啊
-//			curSub.addEventListener('maskClick',function(){
-//				closeMenu();
-//			});
+
 
 			//在android4.4中的swipe事件，需要preventDefault一下，否则触发不正常
 			//故，在dragleft，dragright中preventDefault
@@ -518,14 +477,6 @@
 			//menu页面向左滑动，关闭菜单；
 			window.addEventListener("menu:swipeleft", closeMenu);
 
-			//重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
-			mui.menu = function() {
-				if(showMenu) {
-					closeMenu();
-				} else {
-					openMenu();
-				}
-			}
 		</script>
 
 	</body>
