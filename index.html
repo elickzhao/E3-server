@@ -54,7 +54,7 @@
 		<script src="js/mui.min.js" charset="UTF-8"></script>
 		<script src="js/ajax.js" charset="UTF-8"></script>
 		<script type="text/javascript" charset="UTF-8">
-			var menu, mask = mui.createMask(_closeMenu); //main是主界面,menu是侧边栏,mask遮罩
+			var menu;
 			var showMenu = false;
 
 			mui.init({
@@ -125,10 +125,8 @@
 					closeStartScreent();
 				}
 				
+				//XXX 现在这个遮罩只能通过点击关闭,要想滑动关闭就又得在页面添加mask,因为mui.createMask无法遮盖上子webview,而现在这种方式又不支持监听swipeleft
 				mainWebView.addEventListener('maskClick', closeMenu);
-				mainWebView.addEventListener("swipeleft", function(){
-					console.log('333');
-				});
 			});
 
 			//关闭启动页面
@@ -424,9 +422,7 @@
 								duration: 150 //动画持续时间
 							}
 						});
-					});
-					//显示遮罩
-					//mask.show();
+					});				
 					showMenu = true;
 				}
 			}
@@ -435,8 +431,6 @@
 			 */
 			function closeMenu() {
 				_closeMenu();
-				//关闭遮罩
-				mask.close();
 			}
 			/**
 			 * 关闭侧滑菜单（业务部分）
@@ -460,6 +454,7 @@
 					showMenu = false;
 				}
 			}
+			
 
 
 			//在android4.4中的swipe事件，需要preventDefault一下，否则触发不正常

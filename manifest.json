@@ -526,7 +526,19 @@
 			},
 			"offcanvas-drag-right-plus-menu.html": {
 				"resources": [
-					"js/mui.min.js"
+					"js/mui.min.js",
+					"img/menu_bg.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"img/profile_no_avarta_icon.png",
+					"img/mainpage_home_icon.png",
+					"css/mui.css",
+					"img/mainpage_address_icon.png",
+					"img/mainpage_password_icon.png",
+					"img/mainpage_good_icon.png",
+					"img/mainpage_shop_icon.png",
+					"img/mainpage_purse_icon.png",
+					"img/mainpage_order_icon.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -542,7 +554,6 @@
 				"css/mui.poppicker.css",
 				"js/mui.js",
 				"css/mui.picker.css",
-				"css/mui.css",
 				"img/1476836674829869171.png",
 				"img/bg.png",
 				"Mine/register-needtem.html"
