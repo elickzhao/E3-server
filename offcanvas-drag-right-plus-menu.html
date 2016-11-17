@@ -42,10 +42,10 @@
 			
 			.mui-table-view:after,
 			.mui-table-view:before,
-			.mui-table-view-cell:not(:first-child):after {
+			.mui-table-view-cell:not(:first-child):not(:nth-last-child(3)):after {
 				background: none;
 			}
-			
+									
 			.mui-table-view .mui-media-object {
 				line-height: 25px;
 				max-width: 25px;
@@ -126,8 +126,15 @@
 					</div>
 				</a>
 			</li>
+			<li class="mui-table-view-cell mui-media" style="position: fixed; bottom: 44px;">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="img/mainpage_set_icon.png" >
+					<div class="mui-media-body silder-nav">
+						设置
+					</div>
+				</a>
+			</li>
 		</ul>
-
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			mui.init({
