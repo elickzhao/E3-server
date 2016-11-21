@@ -289,7 +289,9 @@
 					"guide.html",
 					"Mine/my-dingdan-needtem.html",
 					"Mine/change-address-needtem.html",
-					"offcanvas-drag-right-plus-menu.html"
+					"offcanvas-drag-right-plus-menu.html",
+					"Mine/changepsd-needtem.html",
+					"Mine/changeEmail-needtem.html"
 				],
 				"priority": 0
 			},
@@ -452,7 +454,8 @@
 					"fonts/mui.ttf",
 					"css/own.css",
 					"js/mui.min.js",
-					"js/own.js"
+					"js/own.js",
+					"Mine/change-address-needtem.html"
 				],
 				"priority": 8,
 				"refer": []
@@ -506,10 +509,14 @@
 					"fonts/iconfont.ttf",
 					"js/mui.min.js",
 					"js/own.js",
-					"js/ajax.js"
+					"js/ajax.js",
+					"js/load.js",
+					"js/md5.js"
 				],
 				"priority": 11,
-				"refer": []
+				"refer": [
+					"Mine/my-dingdan-needtem.html"
+				]
 			},
 			"guide.html": {
 				"resources": [
@@ -538,9 +545,13 @@
 					"img/mainpage_good_icon.png",
 					"img/mainpage_shop_icon.png",
 					"img/mainpage_purse_icon.png",
-					"img/mainpage_order_icon.png"
+					"img/mainpage_order_icon.png",
+					"img/mainpage_set_icon.png",
+					"js/own.js"
 				],
-				"refer": [],
+				"refer": [
+					"Mine/login.html"
+				],
 				"priority": 0
 			}
 		},

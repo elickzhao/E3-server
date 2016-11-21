@@ -61,7 +61,7 @@ document.body.appendChild(load_element);
 	function logData(data){
 		console.log(JSON.stringify(data));
 	}
-	 
+
 
 (function(w){
 	//获取sessionKey
@@ -82,7 +82,7 @@ document.body.appendChild(load_element);
 		});
 	};
 	
-	//刷新token  --> todo 还没做
+	//XXX 刷新token  --> todo 还没做
 	w.ajax_get_SessionKey = function(){
 		mui.ajax('http://182.140.244.73:91/sessionkey',{
 			dataType:'json',//服务器返回json格式数据

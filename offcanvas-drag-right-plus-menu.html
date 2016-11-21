@@ -45,7 +45,7 @@
 			.mui-table-view-cell:not(:first-child):not(:nth-last-child(3)):after {
 				background: none;
 			}
-									
+			
 			.mui-table-view .mui-media-object {
 				line-height: 25px;
 				max-width: 25px;
@@ -55,6 +55,10 @@
 			.silder-nav {
 				color: white;
 				margin-top: 5px;
+			}
+			.mui-table-view-cell > a:not(.mui-btn).mui-active
+			{
+			    background-color: #696969; opacity:0.5;
 			}
 		</style>
 	</head>
@@ -120,15 +124,15 @@
 			</li>
 			<li class="mui-table-view-cell mui-media">
 				<a href="javascript:;">
-					<img class="mui-media-object mui-pull-left" src="img/mainpage_password_icon.png" >
+					<img class="mui-media-object mui-pull-left" src="img/mainpage_password_icon.png">
 					<div class="mui-media-body silder-nav">
 						修改密码
 					</div>
 				</a>
 			</li>
-			<li class="mui-table-view-cell mui-media" style="position: fixed; bottom: 44px;">
+			<li class="mui-table-view-cell mui-media" style="position: fixed; bottom: 44px;width: 100%;">
 				<a href="javascript:;">
-					<img class="mui-media-object mui-pull-left" src="img/mainpage_set_icon.png" >
+					<img class="mui-media-object mui-pull-left" src="img/mainpage_set_icon.png">
 					<div class="mui-media-body silder-nav">
 						设置
 					</div>
@@ -136,6 +140,7 @@
 			</li>
 		</ul>
 		<script src="js/mui.min.js"></script>
+		<script src="js/own.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
 			mui.init({
 				keyEventBind: {
@@ -147,7 +152,53 @@
 			var main = null;
 			mui.plusReady(function() {
 				main = plus.webview.currentWebview().opener();
+				
+				
+				//localStorage.setItem('user_info',''); //测试信息
+				
+				//当页面加载的时候,判断是否登录,如果登录重绘头像
+				var r = checkLogin();
+				if(!r) {
+					//如果未登录 弹出登录窗口
+					//登录后得触发已经登录事件,好让页面重绘  
+					//看来不能放这里 这里直接就执行了
+					mui(".mui-table-view").on('tap', '.mui-table-view-cell', openLoginWebview);
+					
+
+				} else {
+					//如果登录返回信息
+					mui(".mui-table-view").on('tap', '.mui-table-view-cell', openSubWebview);
+				}
+
 			})
+
+			function checkLogin() {
+				if(!localStorage.getItem('user_info')) {
+					return false;
+				} else {
+					return localStorage.getItem('user_info');
+				}
+			}
+			
+			function openLoginWebview(){
+				//XXX 打开登录窗口
+				console.log('打开登录窗口');
+				mui.openWindow({
+					url:"Mine/login.html",
+					id:"Mine/login.html",
+					show:{
+						aniShow:'slide-in-bottom',
+						duration:'200',
+					},
+					waiting:{
+						autoShow:false
+					}
+				});
+			}
+			
+			function openSubWebview(){
+				console.log('打开子窗口');
+			}
 
 			function closeMenu() {
 				mui.fire(main, "menu:swipeleft");

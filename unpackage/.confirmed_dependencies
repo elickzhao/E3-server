@@ -57,7 +57,9 @@
 			"guide.html",
 			"Mine/my-dingdan-needtem.html",
 			"Mine/change-address-needtem.html",
-			"offcanvas-drag-right-plus-menu.html"
+			"offcanvas-drag-right-plus-menu.html",
+			"Mine/changepsd-needtem.html",
+			"Mine/changeEmail-needtem.html"
 		]
 	},
 	"baritemHtml/mine.html": {
@@ -206,9 +208,12 @@
 			"css/mui.min.css",
 			"css/own.css",
 			"js/mui.min.js",
-			"js/own.js"
+			"js/own.js",
+			"Mine/change-address-needtem.html"
 		],
-		"refer": [],
+		"refer": [
+			"Mine/change-address-needtem.html"
+		],
 		"priority": 0
 	},
 	"Mine/address.html": {
@@ -221,7 +226,8 @@
 			"js/mui.min.js",
 			"js/city.data-3.js",
 			"js/mui.picker.min.js",
-			"js/own.js"
+			"js/own.js",
+			"fonts/mui.ttf"
 		],
 		"refer": [],
 		"priority": 0
@@ -254,9 +260,13 @@
 			"css/iconfont.css",
 			"js/mui.min.js",
 			"js/own.js",
-			"js/ajax.js"
+			"js/ajax.js",
+			"js/load.js",
+			"js/md5.js"
 		],
-		"refer": [],
+		"refer": [
+			"Mine/my-dingdan-needtem.html"
+		],
 		"priority": 0
 	},
 	"guide.html": {
@@ -285,7 +295,12 @@
 			"img/mainpage_good_icon.png",
 			"img/mainpage_shop_icon.png",
 			"img/mainpage_purse_icon.png",
-			"img/mainpage_order_icon.png"
+			"img/mainpage_order_icon.png",
+			"img/mainpage_set_icon.png",
+			"js/own.js"
+		],
+		"refer": [
+			"Mine/login.html"
 		]
 	}
 }
