@@ -291,7 +291,8 @@
 					"Mine/change-address-needtem.html",
 					"offcanvas-drag-right-plus-menu.html",
 					"Mine/changepsd-needtem.html",
-					"Mine/changeEmail-needtem.html"
+					"Mine/changeEmail-needtem.html",
+					"Mine/register-needtem.html"
 				],
 				"priority": 0
 			},
@@ -553,6 +554,19 @@
 					"Mine/login.html"
 				],
 				"priority": 0
+			},
+			"Mine/register-needtem.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/own.css",
+					"js/own.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/ajax.js",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -566,8 +580,7 @@
 				"js/mui.js",
 				"css/mui.picker.css",
 				"img/1476836674829869171.png",
-				"img/bg.png",
-				"Mine/register-needtem.html"
+				"img/bg.png"
 			]
 		}
 	},

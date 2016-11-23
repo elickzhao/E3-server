@@ -59,7 +59,8 @@
 			"Mine/change-address-needtem.html",
 			"offcanvas-drag-right-plus-menu.html",
 			"Mine/changepsd-needtem.html",
-			"Mine/changeEmail-needtem.html"
+			"Mine/changeEmail-needtem.html",
+			"Mine/register-needtem.html"
 		]
 	},
 	"baritemHtml/mine.html": {
@@ -301,6 +302,17 @@
 		],
 		"refer": [
 			"Mine/login.html"
+		]
+	},
+	"Mine/register-needtem.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/own.css",
+			"js/own.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/ajax.js",
+			"fonts/iconfont.ttf"
 		]
 	}
 }

@@ -10,8 +10,9 @@ load_element.setAttribute("src","../js/load.js");//XXX 这个在首页会报错 
 document.body.appendChild(load_element);
 
 
-
-	var httpUrl = "http://api.huanqiujishi.com/";
+	//XXX 服务器地址
+	//var httpUrl = "http://api.huanqiujishi.com/";
+	var httpUrl = "http://111.192.112.110/ujwt/public/api/";
 	var app_key = "9e304d4e8df1b74cfa009913198428ab";
 	var v = "v1.0";
 	var sign_method = "md5";
@@ -123,24 +124,27 @@ document.body.appendChild(load_element);
 	//用户登陆
 	w.ajax_login = function(options,callback){
 		//var data = getdata(options,'com.huihoo.user.login');
-		mui.ajax(httpUrl+'authorization?email='+options.user_name+'&password='+options.pwd,{
+		mui.ajax(httpUrl+'authorization?user_name='+options.user_name+'&password='+options.pwd,{
 			//data:data,
 			dataType:'json',//服务器返回json格式数据
 			type:'post',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；
 			success:function(data){
+				//XXX 返回用户信息及token
 				logData(data);
-				data.account = options.user_name;
-				localStorage.setItem('data.token',data.token);
+				localStorage.setItem('account',options.user_name);
+				localStorage.setItem('token',data.token);
+				localStorage.setItem('user',JSON.stringify(data));
 				//mui.fire(loginWebview,'hide',{data});
 				//loginSuccess(data);
 				//loginWebview.close();
 				return callback();
 			},
 			error:function(xhr,type,errorThrown){
-				console.log(xhr,type,errorThrown);
+				logData(xhr);
+				//console.log(xhr,type,errorThrown);
 				//return false;
-				return callback('请求错误!!!!');
+				return callback('用户名或密码错误!!!!');
 			}
 		});
 	}

@@ -35,7 +35,7 @@
 				font-size: 20px;
 				font-weight: 100;
 				line-height: 20px;
-				margin-top: 20px;
+				margin-top: 30px;
 				margin-left: 40px;
 				color: #333;
 			}
@@ -56,9 +56,10 @@
 				color: white;
 				margin-top: 5px;
 			}
-			.mui-table-view-cell > a:not(.mui-btn).mui-active
-			{
-			    background-color: #696969; opacity:0.5;
+			
+			.mui-table-view-cell> a:not(.mui-btn).mui-active {
+				background-color: #696969;
+				opacity: 0.5;
 			}
 		</style>
 	</head>
@@ -66,10 +67,11 @@
 	<body>
 
 		<div class="mui-card-header mui-card-media">
-			<img src="img/profile_no_avarta_icon.png" />
+			<img id="user_picture" src="img/profile_no_avarta_icon.png" />
 			<div class="mui-media-body">
-				<p>您还未登录</p>
-				<p>长工</p>
+				<!--<p id='login'>您还未登录</p>-->
+				<p id='user_name'>您还未登录</p>
+				<p id='rank'></p>
 			</div>
 		</div>
 
@@ -152,51 +154,64 @@
 			var main = null;
 			mui.plusReady(function() {
 				main = plus.webview.currentWebview().opener();
-				
-				
-				//localStorage.setItem('user_info',''); //测试信息
-				
+
+				localStorage.setItem('user', ''); //测试信息
+				openWebview();
+
+			})
+
+			function openWebview() {
+				// 取消绑定事件,否则会出现重复绑定问题
+				mui(".mui-table-view").off();
+
 				//当页面加载的时候,判断是否登录,如果登录重绘头像
 				var r = checkLogin();
 				if(!r) {
 					//如果未登录 弹出登录窗口
-					//登录后得触发已经登录事件,好让页面重绘  
-					//看来不能放这里 这里直接就执行了
 					mui(".mui-table-view").on('tap', '.mui-table-view-cell', openLoginWebview);
-					
 
 				} else {
 					//如果登录返回信息
 					mui(".mui-table-view").on('tap', '.mui-table-view-cell', openSubWebview);
+					var userInfo = storageGetclass('user') ;
+					document.getElementById("user_name").style.marginTop = '10px';
+					document.getElementById("user_name").innerText = userInfo.user_name;
+					//XXX 这里的等级名称 还未完成
+					document.getElementById("rank").style.marginTop = '10px';
+					document.getElementById("rank").innerText = "长工";
+					var user_picture = userInfo.user_picture ? userInfo.user_picture : 'http://img4.imgtn.bdimg.com/it/u=2856187437,47461585&fm=21&gp=0.jpg';
+					document.getElementById("user_picture").src = user_picture;
 				}
 
-			})
+			}
+
 
 			function checkLogin() {
-				if(!localStorage.getItem('user_info')) {
+				//XXX 如果长时间未登录 可能token失效 需要重新登录这个要处理下
+				if(!localStorage.getItem('user')) {
 					return false;
 				} else {
-					return localStorage.getItem('user_info');
+					return localStorage.getItem('user');
 				}
 			}
-			
-			function openLoginWebview(){
-				//XXX 打开登录窗口
+
+			function openLoginWebview() {
+				// 打开登录窗口
 				console.log('打开登录窗口');
 				mui.openWindow({
-					url:"Mine/login.html",
-					id:"Mine/login.html",
-					show:{
-						aniShow:'slide-in-bottom',
-						duration:'200',
+					url: "Mine/login.html",
+					id: "Mine/login.html",
+					show: {
+						aniShow: 'slide-in-bottom',
+						duration: '200',
 					},
-					waiting:{
-						autoShow:false
+					waiting: {
+						autoShow: false
 					}
 				});
 			}
-			
-			function openSubWebview(){
+
+			function openSubWebview() {
 				console.log('打开子窗口');
 			}
 
@@ -205,6 +220,9 @@
 			}
 			//优化显示出来的侧滑菜单，只需监听该菜单的左滑事件，然后将其关闭即可；在菜单上右滑，不做任何操作；
 			window.addEventListener("swipeleft", closeMenu);
+			window.addEventListener('loginSuccess', function() {
+				openWebview();
+			})
 
 			mui.menu = closeMenu;
 		</script>

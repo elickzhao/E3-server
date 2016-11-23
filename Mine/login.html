@@ -108,8 +108,18 @@
 						plus.nativeUI.toast(err);
 						return;
 					}
+
+					// 触发登录成功事件
+					fireLoginSuccess();
 					loginWebview.close();
 				});
+				
+				function fireLoginSuccess(){
+					// 触发侧边栏 登录成功事件
+					var menuWebview = plus.webview.getWebviewById('offcanvas-drag-right-plus-menu');
+					mui.fire(menuWebview,'loginSuccess');
+				}
+				
 				
 				//添加事件接收close事件，并且要判断是否已经登录成功，然后页面close，因为login页面是预先加载的页面
 				//在这里向需要的页面发送消息事件通知已经登录做响应的处理
@@ -138,6 +148,10 @@
 //					//mui.fire(cartwebview,'loginSuccess',{});
 //					mui.fire(minewebview,'loginSuccess',{});
 //					//mui.fire(xinyuandanwebview,'loginSuccess',{});
+//					
+//					var menuWebview = plus.webview.getWebviewById('offcanvas-drag-right-plus-menu');
+//					
+//					mui.fire(menuWebview,'loginSuccess');
 //					
 //					loginWebview.close();
 //				},false);

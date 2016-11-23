@@ -46,3 +46,10 @@
 		return aniShow;
 	}
 })(window);
+
+
+// 帮助函数
+function storageGetclass(data){
+	var r = JSON.parse(localStorage.getItem(data));
+	return r;
+}
