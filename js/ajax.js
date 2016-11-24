@@ -141,10 +141,16 @@ document.body.appendChild(load_element);
 				return callback();
 			},
 			error:function(xhr,type,errorThrown){
-				logData(xhr);
+				logData(type);
+				var errorInfo;
+				if(type == 'timeout'){
+					errorInfo = '连接服务器超时!';
+				}else{
+					errorInfo = '用户名或密码错误!';
+				}
 				//console.log(xhr,type,errorThrown);
 				//return false;
-				return callback('用户名或密码错误!!!!');
+				return callback(errorInfo);
 			}
 		});
 	}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-table-view .mui-media-object {
+				line-height: 25px;
+				max-width: 25px;
+				height: 25px;
+			}
+			
+			.silder-nav {
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;" class="mui-navigate-right">
+					<!--XXX 本应该有充值页面, 不过现在系统不支持充值,就先放放-->
+					<img class="mui-media-object mui-pull-left" src="../img/purse_img_purse.png">
+					<span class="mui-badge mui-badge-warning">￥0.00</span> 我的钱包
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../img/my_redpaper.png">
+					<span class="mui-badge mui-badge-danger">0</span> 红包
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../img/my_integral.png">
+					<span class="mui-badge mui-badge-success">20</span> 积分
+
+				</a>
+			</li>
+		</ul>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

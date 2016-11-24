@@ -60,7 +60,8 @@
 			"offcanvas-drag-right-plus-menu.html",
 			"Mine/changepsd-needtem.html",
 			"Mine/changeEmail-needtem.html",
-			"Mine/register-needtem.html"
+			"Mine/register-needtem.html",
+			"Mine/my-wallet-needtem.html"
 		]
 	},
 	"baritemHtml/mine.html": {
@@ -301,7 +302,8 @@
 			"js/own.js"
 		],
 		"refer": [
-			"Mine/login.html"
+			"Mine/login.html",
+			"index.html"
 		]
 	},
 	"Mine/register-needtem.html": {
@@ -313,6 +315,16 @@
 			"css/mui.min.css",
 			"js/ajax.js",
 			"fonts/iconfont.ttf"
+		]
+	},
+	"Mine/my-wallet-needtem.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/purse_img_purse.png",
+			"img/my_redpaper.png",
+			"img/my_integral.png"
 		]
 	}
 }

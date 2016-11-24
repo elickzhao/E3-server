@@ -65,19 +65,18 @@
 	</head>
 
 	<body>
-
+		<!--XXX 点击头像事件还没做-->
 		<div class="mui-card-header mui-card-media">
 			<img id="user_picture" src="img/profile_no_avarta_icon.png" />
 			<div class="mui-media-body">
-				<!--<p id='login'>您还未登录</p>-->
 				<p id='user_name'>您还未登录</p>
 				<p id='rank'></p>
 			</div>
 		</div>
 
 		<ul class="mui-table-view" style="background: none; margin-top: 50px;">
-			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
+			<li class="mui-table-view-cell mui-media" >
+				<a href="index.html">
 					<img class="mui-media-object mui-pull-left" src="img/mainpage_home_icon.png">
 					<div class="mui-media-body silder-nav">
 						主页
@@ -93,11 +92,9 @@
 				</a>
 			</li>
 			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
+				<a href="Mine/my-wallet-needtem.html">
 					<img class="mui-media-object mui-pull-left" src="img/mainpage_purse_icon.png">
-					<div class="mui-media-body silder-nav">
-						我的钱包
-					</div>
+					<div class="mui-media-body silder-nav">我的钱包</div>
 				</a>
 			</li>
 			<li class="mui-table-view-cell mui-media">
@@ -155,11 +152,11 @@
 			mui.plusReady(function() {
 				main = plus.webview.currentWebview().opener();
 
-				localStorage.setItem('user', ''); //测试信息
+				//localStorage.setItem('user', ''); //测试信息
 				openWebview();
 
 			})
-
+			
 			function openWebview() {
 				// 取消绑定事件,否则会出现重复绑定问题
 				mui(".mui-table-view").off();
@@ -172,7 +169,7 @@
 
 				} else {
 					//如果登录返回信息
-					mui(".mui-table-view").on('tap', '.mui-table-view-cell', openSubWebview);
+					mui(".mui-table-view").on('tap', 'a', openSubWebview);
 					var userInfo = storageGetclass('user') ;
 					document.getElementById("user_name").style.marginTop = '10px';
 					document.getElementById("user_name").innerText = userInfo.user_name;
@@ -212,7 +209,29 @@
 			}
 
 			function openSubWebview() {
-				console.log('打开子窗口');
+				var id = this.getAttribute('href');
+				var href = this.href;
+				var	title = trim(this.innerText);
+				var isBars = 'false';
+				var barsIcon = '';
+
+				
+				if(id == 'index.html'){
+					closeMenu();
+					return;
+				}
+				
+				
+				
+				mui.fire(main,'newWebView',{
+					id: id,
+					href: href,
+					aniShow: getaniShow(),
+					title: title,
+					isBars: isBars,
+					barsIcon: barsIcon
+				});
+				
 			}
 
 			function closeMenu() {

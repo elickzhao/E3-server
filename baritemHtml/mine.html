@@ -116,7 +116,7 @@
 			
 			//检测是否已经登录
 			//XXX 这里登录是有问题的
-			console.error('这里登录存在问题');
+			//console.error('这里登录存在问题');
 			console.log(localStorage.getItem('user'));
 			if (!localStorage.getItem('user')) {
 				logoutBtn.style.display = 'none';
@@ -140,7 +140,6 @@
 				var title = this.innerText;
 				var isBars = false;
 				var barsIcon = '';
-				
 				//检测已经存在sessionkey否者运行下面的登陆代码
 				if (localStorage.getItem('user')) {
 				}else {
