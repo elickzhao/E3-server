@@ -43,8 +43,19 @@
 			</li>
 		</ul>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/ajax.js" charset=""></script>
+		<script src="../js/own.js" charset="UTF-8"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			var userInfo = storageGetclass('user') ;
+			var ws;
+			mui.plusReady(function () {
+			    ws = plus.webview.currentWebview();    
+			})
+			//XXX  唉用模版的话 好像真的每次都不执行了
+			console.log('22222222222222');
+			ajax_get_wallet(userInfo);
+			
 		</script>
 	</body>
 

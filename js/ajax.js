@@ -12,7 +12,7 @@ document.body.appendChild(load_element);
 
 	//XXX 服务器地址
 	//var httpUrl = "http://api.huanqiujishi.com/";
-	var httpUrl = "http://111.192.112.110/ujwt/public/api/";
+	var httpUrl = "http://114.245.83.242/ujwt/public/api/";
 	var app_key = "9e304d4e8df1b74cfa009913198428ab";
 	var v = "v1.0";
 	var sign_method = "md5";
@@ -63,6 +63,13 @@ document.body.appendChild(load_element);
 		console.log(JSON.stringify(data));
 	}
 
+	function getMessage(xhr){
+		var r = JSON.parse(xhr.response);
+		//这样就能返回错误信息了
+		//console.log(r.message);
+		return JSON.stringify(r.message);
+	}
+
 
 (function(w){
 	//获取sessionKey
@@ -84,18 +91,34 @@ document.body.appendChild(load_element);
 	};
 	
 	//XXX 刷新token  --> todo 还没做
-	w.ajax_get_SessionKey = function(){
-		mui.ajax('http://182.140.244.73:91/sessionkey',{
+	w.ajax_get_refreshToken = function(token){
+		var url = httpUrl+'auth/token/new?token='+token;
+		console.log(url);
+		mui.ajax(url,{
 			dataType:'json',//服务器返回json格式数据
 			type:'post',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；
 			success:function(data){
-				logData(data);
-				localStorage.setItem('session_key',data.session_key);
-				//关闭启动页面
-				closeStartScreent();
+//				logData(data);
+//				console.log(data);
+				localStorage.setItem('token',data.token);
 			},
 			error:function(xhr,type,errorThrown){
+				//错误信息
+				//Token has expired and can no longer be refreshed
+				//The token has been blacklisted
+				//这两种错误 都需要重新登录,服务器无法连接 time out 还没想好怎么处理 
+				//在首页会判断连接服务器 但是有可能请求时过多造成断网之类的.
+				console.log(type);
+				var m = getMessage(xhr);
+				console.log(m);
+				
+				//清空信息 重新登录
+				localStorage.setItem('account','');
+				localStorage.setItem('token','');
+				localStorage.setItem('user','');
+				
+
 				
 			}
 		});
@@ -112,10 +135,10 @@ document.body.appendChild(load_element);
 			timeout:10000,//超时时间设置为10秒；
 			success:function(data){
 				logData(data);
-				registerSeccess(data);
+				//localStorage.setItem('token',data);
 			},
 			error:function(xhr,type,errorThrown){
-				
+
 			}
 		});
 	}
@@ -131,13 +154,10 @@ document.body.appendChild(load_element);
 			timeout:10000,//超时时间设置为10秒；
 			success:function(data){
 				//XXX 返回用户信息及token
-				logData(data);
+				//logData(data);
 				localStorage.setItem('account',options.user_name);
 				localStorage.setItem('token',data.token);
 				localStorage.setItem('user',JSON.stringify(data));
-				//mui.fire(loginWebview,'hide',{data});
-				//loginSuccess(data);
-				//loginWebview.close();
 				return callback();
 			},
 			error:function(xhr,type,errorThrown){
@@ -381,5 +401,24 @@ document.body.appendChild(load_element);
 		});
 	}
 	
+	w.ajax_get_wallet = function(userInfo){	
+		var url = httpUrl+'user/wallet/'+userInfo.user_id+'?token='+userInfo.token;
+		console.log(url);
+		mui.ajax(url,{
+			dataType:'json',//服务器返回json格式数据
+			type:'post',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			success:function(data){
+				console.log(data);
+			},
+			error:function(xhr,type,errorThrown){
+				console.log(type);
+				var r = JSON.parse(xhr.response);
+				//XXX 这样就能返回错误信息了
+				console.log(r.message);
+				logData(xhr);
+			}
+		});
+	}
 	
 })(window);

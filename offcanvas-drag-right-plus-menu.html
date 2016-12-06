@@ -184,7 +184,7 @@
 
 
 			function checkLogin() {
-				//XXX 如果长时间未登录 可能token失效 需要重新登录这个要处理下
+				// 如果长时间未登录 可能token失效 需要重新登录这个要处理下  //已经在首页处理了
 				if(!localStorage.getItem('user')) {
 					return false;
 				} else {

@@ -53,6 +53,7 @@
 
 		<script src="js/mui.min.js" charset="UTF-8"></script>
 		<script src="js/ajax.js" charset="UTF-8"></script>
+		<script src="js/own.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="UTF-8">
 			var menu;
 			var showMenu = false;
@@ -117,12 +118,35 @@
 				initParentChildTemplate();
 				//接收自定义的事件页面切换
 				changeWebViewEvent();
-
-				//判断是否已经获取session_key
-				if(!localStorage.getItem('session_key')) {
-					ajax_get_SessionKey()
-				} else {
-					closeStartScreent();
+				
+				//XXX 判断是否联网 否则弹出提示 可以提示 不过还能呢个进入
+				//XXX  Uncaught ReferenceError: plus is not defined (提示: 请在plus ready后再调用plus api) //这里有个这个错误
+				if (plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE || plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_UNKNOW) {
+				    mui.toast("当前暂无网络连接，请打开数据服务!", "提示");
+				 }
+				document.addEventListener("netchange", function () { //监听网络变化事件
+				  var types = {}; 
+				  types[plus.networkinfo.CONNECTION_UNKNOW] = "Unknown connection"; 
+				  types[plus.networkinfo.CONNECTION_NONE] = "No connection"; 
+				  types[plus.networkinfo.CONNECTION_ETHERNET] = "Ethernet connection"; 
+				  types[plus.networkinfo.CONNECTION_WIFI] = "WiFi connection"; 
+				  types[plus.networkinfo.CONNECTION_CELL2G] = "Cellular 2G connection"; 
+				  types[plus.networkinfo.CONNECTION_CELL3G] = "Cellular 3G connection"; 
+				  types[plus.networkinfo.CONNECTION_CELL4G] = "Cellular 4G connection"; 
+				
+				  //log1(types[plus.networkinfo.getCurrentType()]);
+				  if (plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE || plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_UNKNOW) {
+				    mui.toast("当前暂无网络连接，请打开数据服务!", "提示");
+				  }
+				  else {
+				  }
+				}, false);
+				
+				//判断token所处状态
+				var token = localStorage.getItem('token');
+				if(token){
+					//存在就更新token
+					ajax_get_refreshToken(token);
 				}
 				
 				//XXX 现在这个遮罩只能通过点击关闭,要想滑动关闭就又得在页面添加mask,因为mui.createMask无法遮盖上子webview,而现在这种方式又不支持监听swipeleft
@@ -271,12 +295,12 @@
 				}, false);
 				headerWebView.addEventListener('hide', function() {
 					//设置statusbar
-					//				plus.navigator.setStatusBarBackground('#41cea9');
+					//plus.navigator.setStatusBarBackground('#41cea9');
 					contentWebView.hide();
 				}, false);
 				headerWebView.addEventListener('show', function() {
 					//设置statusbar
-					//				plus.navigator.setStatusBarBackground('#f7f7f7');
+					//plus.navigator.setStatusBarBackground('#f7f7f7');
 				});
 				headerWebView.append(contentWebView);
 			}

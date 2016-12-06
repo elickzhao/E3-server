@@ -41,7 +41,8 @@
 			"js/ajax.js",
 			"fonts/iconfont.ttf",
 			"baritemHtml/category.html",
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"js/own.js"
 		],
 		"refer": [
 			"baritemHtml/home.html",
@@ -142,7 +143,8 @@
 			"js/md5.js",
 			"js/request.addr.js",
 			"js/own.js",
-			"js/ajax.js"
+			"js/ajax.js",
+			"fonts/mui.ttf"
 		],
 		"refer": []
 	},
@@ -324,7 +326,11 @@
 			"css/mui.min.css",
 			"img/purse_img_purse.png",
 			"img/my_redpaper.png",
-			"img/my_integral.png"
+			"img/my_integral.png",
+			"js/own.js",
+			"js/ajax.js",
+			"js/load.js",
+			"js/md5.js"
 		]
 	}
 }

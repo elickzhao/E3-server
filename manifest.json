@@ -275,7 +275,8 @@
 					"js/ajax.js",
 					"fonts/iconfont.ttf",
 					"baritemHtml/category.html",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"js/own.js"
 				],
 				"refer": [
 					"template-main.html",
@@ -577,7 +578,11 @@
 					"css/mui.min.css",
 					"img/purse_img_purse.png",
 					"img/my_redpaper.png",
-					"img/my_integral.png"
+					"img/my_integral.png",
+					"js/own.js",
+					"js/ajax.js",
+					"js/load.js",
+					"js/md5.js"
 				],
 				"refer": [],
 				"priority": 0
