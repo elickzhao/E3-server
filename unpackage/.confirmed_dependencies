@@ -176,7 +176,9 @@
 			"fonts/mui.ttf",
 			"img/jump.gif"
 		],
-		"refer": []
+		"refer": [
+			"Mine/my-wallet-needtem.html"
+		]
 	},
 	"Home/product-detail-needtem.html": {
 		"resources": [
@@ -330,7 +332,11 @@
 			"js/own.js",
 			"js/ajax.js",
 			"js/load.js",
-			"js/md5.js"
+			"js/md5.js",
+			"category/category-detail-needtem.html"
+		],
+		"refer": [
+			"category/category-detail-needtem.html"
 		]
 	}
 }

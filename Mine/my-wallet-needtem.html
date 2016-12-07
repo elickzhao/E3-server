@@ -25,19 +25,19 @@
 				<a href="javascript:;" class="mui-navigate-right">
 					<!--XXX 本应该有充值页面, 不过现在系统不支持充值,就先放放-->
 					<img class="mui-media-object mui-pull-left" src="../img/purse_img_purse.png">
-					<span class="mui-badge mui-badge-warning">￥0.00</span> 我的钱包
+					<span class="mui-badge mui-badge-warning" id='wallet'>￥10.00</span> 我的钱包
 				</a>
 			</li>
 			<li class="mui-table-view-cell mui-media">
 				<a href="javascript:;">
 					<img class="mui-media-object mui-pull-left" src="../img/my_redpaper.png">
-					<span class="mui-badge mui-badge-danger">0</span> 红包
+					<span class="mui-badge mui-badge-danger" >0</span> 红包
 				</a>
 			</li>
 			<li class="mui-table-view-cell mui-media">
 				<a href="javascript:;">
 					<img class="mui-media-object mui-pull-left" src="../img/my_integral.png">
-					<span class="mui-badge mui-badge-success">20</span> 积分
+					<span class="mui-badge mui-badge-success" id="points">200</span> 积分
 
 				</a>
 			</li>
@@ -48,13 +48,18 @@
 		<script type="text/javascript">
 			mui.init();
 			var userInfo = storageGetclass('user') ;
+			var token = localStorage.getItem('token')
 			var ws;
 			mui.plusReady(function () {
-			    ws = plus.webview.currentWebview();    
+			    ws = plus.webview.currentWebview();  
+			    
+			    //为了加速不会每次都请求,只要模版页更新了,就会重新请求,有个问题是可能存在买完东西积分没变,不过几率很小,因为购物页就是子页面
+				ajax_get_wallet(userInfo,token,function(data){
+					document.getElementById("wallet").innerText = '￥'+data.user_money;
+					document.getElementById("points").innerText = data.pay_points;
+				});
 			})
-			//XXX  唉用模版的话 好像真的每次都不执行了
-			console.log('22222222222222');
-			ajax_get_wallet(userInfo);
+
 			
 		</script>
 	</body>

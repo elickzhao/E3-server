@@ -160,10 +160,8 @@
 				plus.navigator.closeSplashscreen();
 			}
 
-			//判断是否已经登陆
+			//判断是否已经登陆 未登录就预加载登录页面
 			function judgelogin() {
-				//			//测试语句
-				//			localStorage.removeItem('user');
 				//判断是否已经登录成功//localstorage在页面关闭的时候也同样存在，sessionstorage页面关闭数据不存在
 				if(!localStorage.getItem('user')) {
 					mui.preload({

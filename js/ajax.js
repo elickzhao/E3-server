@@ -401,22 +401,25 @@ document.body.appendChild(load_element);
 		});
 	}
 	
-	w.ajax_get_wallet = function(userInfo){	
-		var url = httpUrl+'user/wallet/'+userInfo.user_id+'?token='+userInfo.token;
-		console.log(url);
+	w.ajax_get_wallet = function(userInfo,token,callback){	
+		var url = httpUrl+'user/wallet/'+userInfo.user_id+'?token='+token;
 		mui.ajax(url,{
 			dataType:'json',//服务器返回json格式数据
 			type:'post',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；
 			success:function(data){
-				console.log(data);
+				logData(data);
+				//console.log(data);
+
+				setTimeout(function(){
+					endLoad();	// 关闭加载动画
+					return callback(data);
+				},50);
 			},
 			error:function(xhr,type,errorThrown){
 				console.log(type);
-				var r = JSON.parse(xhr.response);
-				//XXX 这样就能返回错误信息了
-				console.log(r.message);
-				logData(xhr);
+				console.log(getMessage(xhr));
+				
 			}
 		});
 	}

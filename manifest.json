@@ -416,7 +416,9 @@
 					"fonts/mui.ttf",
 					"img/jump.gif"
 				],
-				"refer": [],
+				"refer": [
+					"Mine/my-wallet-needtem.html"
+				],
 				"priority": 0
 			},
 			"Home/product-detail-needtem.html": {
@@ -582,7 +584,8 @@
 					"js/own.js",
 					"js/ajax.js",
 					"js/load.js",
-					"js/md5.js"
+					"js/md5.js",
+					"category/category-detail-needtem.html"
 				],
 				"refer": [],
 				"priority": 0
