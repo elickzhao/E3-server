@@ -63,7 +63,10 @@ document.body.appendChild(load_element);
 		console.log(JSON.stringify(data));
 	}
 
-	function getMessage(xhr){
+	function getMessage(type,xhr){
+		if(type == 'timeout'){
+			return type;
+		}
 		var r = JSON.parse(xhr.response);
 		//这样就能返回错误信息了
 		//console.log(r.message);
@@ -97,7 +100,7 @@ document.body.appendChild(load_element);
 		mui.ajax(url,{
 			dataType:'json',//服务器返回json格式数据
 			type:'post',//HTTP请求类型
-			timeout:10000,//超时时间设置为10秒；
+			timeout:5000,//超时时间设置为10秒；
 			success:function(data){
 //				logData(data);
 //				console.log(data);
@@ -109,12 +112,11 @@ document.body.appendChild(load_element);
 				//The token has been blacklisted
 				//这两种错误 都需要重新登录,服务器无法连接 time out 还没想好怎么处理 
 				//在首页会判断连接服务器 但是有可能请求时过多造成断网之类的.
-				console.log(type);
-				var m = getMessage(xhr);
+
+				var m = getMessage(type,xhr);
 				console.log(m);
 				
 				//清空信息 重新登录
-				localStorage.setItem('account','');
 				localStorage.setItem('token','');
 				localStorage.setItem('user','');
 				
@@ -418,7 +420,7 @@ document.body.appendChild(load_element);
 			},
 			error:function(xhr,type,errorThrown){
 				console.log(type);
-				console.log(getMessage(xhr));
+				console.log(getMessage(type,xhr));
 				
 			}
 		});

@@ -87,20 +87,6 @@
 					});
 				}
 
-				//  预加载侧边栏页面
-				//setTimeout的目的是等待窗体动画结束后，再执行create webview操作，避免资源竞争，导致窗口动画不流畅；
-				setTimeout(function() {
-					//侧滑菜单默认隐藏，这样可以节省内存；
-					menu = mui.preload({
-						id: 'offcanvas-drag-right-plus-menu',
-						url: 'offcanvas-drag-right-plus-menu.html',
-						styles: {
-							left: 0,
-							width: '70%',
-							zindex: 9997 //把页面放的高一点 免得被遮盖
-						}
-					});
-				}, 300);
 
 				//改变statusbar
 				plus.navigator.setStatusBarBackground('#41cea9');
@@ -148,6 +134,24 @@
 					//存在就更新token
 					ajax_get_refreshToken(token);
 				}
+				
+				
+								//  预加载侧边栏页面
+				//setTimeout的目的是等待窗体动画结束后，再执行create webview操作，避免资源竞争，导致窗口动画不流畅；
+				setTimeout(function() {
+					//侧滑菜单默认隐藏，这样可以节省内存；
+					//同时为了上面检验服务器是否能联通 因为需要超时需要5秒 加载太快会造成未验证却显示登录成功了.
+					menu = mui.preload({
+						id: 'offcanvas-drag-right-plus-menu',
+						url: 'offcanvas-drag-right-plus-menu.html',
+						styles: {
+							left: 0,
+							width: '70%',
+							zindex: 9997 //把页面放的高一点 免得被遮盖
+						}
+					});
+				}, 6000);
+				
 				
 				//XXX 现在这个遮罩只能通过点击关闭,要想滑动关闭就又得在页面添加mask,因为mui.createMask无法遮盖上子webview,而现在这种方式又不支持监听swipeleft
 				mainWebView.addEventListener('maskClick', closeMenu);
