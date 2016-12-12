@@ -379,7 +379,6 @@
 								}
 							});
 						} else {
-							//headerWebView.hide();如果在这里添加这个代码，会导致监听事件在下面contentwebview show之后又隐藏掉它
 							contentWebView.hide();
 							//像template-main传送事件让他更改标题
 							mui.fire(headerWebView, 'templateFire', {
@@ -389,7 +388,7 @@
 								target: href,
 								isBars: isBars,
 								barsIcon: barsIcon,
-								categoryID: categoryID
+								categoryID: categoryID,
 							});
 
 							//如果为展示category或者商品信息的页面，需要每次都重新加载，因为存在刷新页面信息的东西;
@@ -398,7 +397,8 @@
 								var str = contentWebView.getURL();
 								var index = str.indexOf('www/');
 								str = str.substring(index + 4);
-								if((!~id.indexOf('category-detail') && !~id.indexOf('goods-detail')) && (contentWebView.getURL() == href || str == href)) {
+								// 如果不是下面页面中的一个 并且这个href不和上一次打开href一样 就打开新页面
+								if((!~id.indexOf('category-detail') && !~id.indexOf('goods-detail')) && !~id.indexOf('my-wallet-needtem') && (contentWebView.getURL() == href || str == href)) {
 									console.log("loaded");
 									contentWebView.show();
 								} else {

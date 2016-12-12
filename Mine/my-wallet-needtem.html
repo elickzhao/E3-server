@@ -20,7 +20,7 @@
 	</head>
 
 	<body>
-		<ul class="mui-table-view">
+		<ul class="mui-table-view" v-show="ok">
 			<li class="mui-table-view-cell mui-media">
 				<a href="javascript:;" class="mui-navigate-right">
 					<!--XXX 本应该有充值页面, 不过现在系统不支持充值,就先放放-->
@@ -45,21 +45,33 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/ajax.js" charset=""></script>
 		<script src="../js/own.js" charset="UTF-8"></script>
+		<script src="https://unpkg.com/vue@2.1.4/dist/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			mui.init();
 			var userInfo = storageGetclass('user') ;
 			var token = localStorage.getItem('token')
 			var ws;
+			
+			//用于同步显示ajax请求 只能用show,因为if的话无法往页面插入请求过来的值
+			var vm = new Vue({
+				el:'.mui-table-view',
+				data: {
+					ok: false
+				}
+			});
+			
+			
 			mui.plusReady(function () {
 			    ws = plus.webview.currentWebview();  
 			    
-			    //为了加速不会每次都请求,只要模版页更新了,就会重新请求,有个问题是可能存在买完东西积分没变,不过几率很小,因为购物页就是子页面
 				ajax_get_wallet(userInfo,token,function(data){
 					document.getElementById("wallet").innerText = '￥'+data.user_money;
 					document.getElementById("points").innerText = data.pay_points;
+					vm.ok=true;
 				});
 			})
 
+			
 			
 		</script>
 	</body>

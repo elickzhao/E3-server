@@ -12,7 +12,7 @@ document.body.appendChild(load_element);
 
 	//XXX 服务器地址
 	//var httpUrl = "http://api.huanqiujishi.com/";
-	var httpUrl = "http://114.245.83.242/ujwt/public/api/";
+	var httpUrl = "http://114.245.85.247/ujwt/public/api/";
 	var app_key = "9e304d4e8df1b74cfa009913198428ab";
 	var v = "v1.0";
 	var sign_method = "md5";
@@ -404,6 +404,7 @@ document.body.appendChild(load_element);
 	}
 	
 	w.ajax_get_wallet = function(userInfo,token,callback){	
+		startLoad();
 		var url = httpUrl+'user/wallet/'+userInfo.user_id+'?token='+token;
 		mui.ajax(url,{
 			dataType:'json',//服务器返回json格式数据
@@ -411,10 +412,10 @@ document.body.appendChild(load_element);
 			timeout:10000,//超时时间设置为10秒；
 			success:function(data){
 				logData(data);
-				//console.log(data);
+				console.log(data);
 
 				setTimeout(function(){
-					endLoad();	// 关闭加载动画
+					endLoad();
 					return callback(data);
 				},50);
 			},
