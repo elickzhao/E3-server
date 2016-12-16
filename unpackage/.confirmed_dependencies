@@ -333,7 +333,8 @@
 			"js/ajax.js",
 			"js/load.js",
 			"js/md5.js",
-			"category/category-detail-needtem.html"
+			"category/category-detail-needtem.html",
+			"js/component.js"
 		],
 		"refer": [
 			"category/category-detail-needtem.html"
