@@ -294,7 +294,9 @@
 					"Mine/changepsd-needtem.html",
 					"Mine/changeEmail-needtem.html",
 					"Mine/register-needtem.html",
-					"Mine/my-wallet-needtem.html"
+					"Mine/my-wallet-needtem.html",
+					"Mine/collect-goods.html",
+					"Mine/collect-goods-needtem.html"
 				],
 				"priority": 0
 			},
@@ -587,6 +589,32 @@
 					"js/md5.js",
 					"category/category-detail-needtem.html",
 					"js/component.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Mine/collect-goods.html": {
+				"resources": [
+					"js/mui.min.js",
+					"components/list/piclist.js",
+					"components/list/piclist.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Mine/collect-goods-needtem.html": {
+				"resources": [
+					"js/mui.min.js",
+					"components/list/piclist.js",
+					"components/list/piclist.css",
+					"js/own.js",
+					"img/bg.jpeg",
+					"css/mui.min.css",
+					"js/ajax.js",
+					"js/load.js",
+					"js/md5.js",
+					"category/category-detail-needtem.html",
+					"img/jump.gif"
 				],
 				"refer": [],
 				"priority": 0

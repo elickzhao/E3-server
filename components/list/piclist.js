@@ -1,15 +1,25 @@
 Vue.component('pic-list', {
-	props: ['herf','name','price1','price2'],
+  props: ['items', 'urlpic'],
+  data: function(){
+  	return {
+  		src: this.urlpic
+  	}
+  },
+  methods:{
+  	picsrc: function(val){
+  		return this.src+val;
+  	}
+  },
   template: ' \
 		<div id="pullrefresh" class="mui-content own-content-padding"> \
 			<ul id="productsList" class="mui-table-view" style="margin-top: 0px;"> \
-				<li class="mui-table-view-cell mui-media mui-col-xs-12"> \
-					<a href=" {{ herf }} "> \
-						<img class="mui-media-object mui-pull-left" src="../img/bg.jpeg" /> \
+				<li v-for="item in items" class="mui-table-view-cell mui-media mui-col-xs-12"> \
+					<a href="#"> \
+						<img class="mui-media-object mui-pull-left" :src="picsrc(item.goods_thumb)"/> \
 						<div class="mui-media-body"> \
-							<p class="mui-ellipsis-2"> {{ name }}</p> \
-							<p class="price-one">¥ {{ price1 }}</p> \
-							<p class="price-two">¥ {{ price2 }}</p> \
+							<p class="mui-ellipsis-2"> {{ item.goods_name }} </p> \
+							<p class="price-one">¥ {{ item.shop_price }}</p> \
+							<p class="price-two">¥ {{ item.market_price}}</p> \
 						</div> \
 					</a> \
 				</li> \

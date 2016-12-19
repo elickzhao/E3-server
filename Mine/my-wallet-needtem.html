@@ -46,12 +46,10 @@
 		<script src="../js/ajax.js" charset=""></script>
 		<script src="../js/own.js" charset="UTF-8"></script>
 		<script src="https://unpkg.com/vue@2.1.4/dist/vue.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="../components/list/piclist.css"/>
-		<script src="../components/list/piclist.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			mui.init();
 			var userInfo = storageGetclass('user') ;
-			var token = localStorage.getItem('token')
+			var token = localStorage.getItem('token');
 			var ws;
 			
 			//用于同步显示ajax请求 只能用show,因为if的话无法往页面插入请求过来的值

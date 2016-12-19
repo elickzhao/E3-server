@@ -11,47 +11,26 @@
 	<body>
 
 		<div class="test">
-			<pic-list 
-				v-for="item in items" 
-				:herf="item.herf"
-				:name="item.name"
-				:price1="item.price1"
-				:price2="item.price2"
-				></pic-list>
+			<!-- props 不能用className这种形式 只能用小写或者class-name这种形式 到模版里会自动转换成className -->
+			<pic-list :items="items" :urlpic="urlPic"></pic-list>
 			<input type="button" id="" value="添加" @click="add" />
 		</div>
 		<script src="../js/mui.min.js"></script>
-		<script src="https://unpkg.com/vue@2.1.4/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/ajax.js" charset=""></script>
+		<script src="../js/own.js" charset="UTF-8"></script>
+		<script src="http://cdn.bootcss.com/vue/2.1.6/vue.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="../components/list/piclist.css" />
 		<script src="../components/list/piclist.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			mui.init();
+			var userInfo = storageGetclass('user') ;
+			var token = localStorage.getItem('token');
+			
 			var vm = new Vue({
 				el: '.test',
 				data: {
-					items: [{
-							herf: '#',
-							name: 'name1',
-							price1: '99.0',
-							price2: '188.0'
-						}, {
-							herf: '#',
-							name: 'name2',
-							price1: '99.0',
-							price2: '188.0'
-						}, {
-							herf: '#',
-							name: 'name3',
-							price1: '99.0',
-							price2: '188.0'
-						}, {
-							herf: '#',
-							name: 'name4',
-							price1: '99.0',
-							price2: '188.0'
-						},
-
-					]
+					urlPic: urlPic,
+					items: []
 				},
 				methods:{
 					add: function(){
@@ -61,6 +40,15 @@
 					}
 				}
 			});
+			
+			mui.plusReady(function () {
+			   	ajax_get_collect(userInfo,token,function(data){
+//					document.getElementById("wallet").innerText = '￥'+data.user_money;
+//					document.getElementById("points").innerText = data.pay_points;
+//					vm.ok=true;
+					vm.items = data.data;
+				}); 
+			})	
 		</script>
 	</body>
 
