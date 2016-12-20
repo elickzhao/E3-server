@@ -426,16 +426,17 @@ document.body.appendChild(load_element);
 		});
 	}
 	
-	w.ajax_get_collect = function(userInfo,token,callback){	
+	w.ajax_get_collect = function(userInfo,token,page,callback){	
 		startLoad();
-		var url = httpUrl+'user/collect/'+userInfo.user_id+'?page=1&token='+token;
+		var url = httpUrl+'user/collect/'+userInfo.user_id+'?page='+page+'&token='+token;
+		console.log(url);
 		mui.ajax(url,{
 			dataType:'json',//服务器返回json格式数据
 			type:'post',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；
 			success:function(data){
-				logData(data);
-				console.log(data);
+//				logData(data);
+//				console.log(data);
 				endLoad();
 				return callback(data);
 

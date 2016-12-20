@@ -361,7 +361,8 @@
 			"js/load.js",
 			"js/md5.js",
 			"category/category-detail-needtem.html",
-			"img/jump.gif"
+			"img/jump.gif",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"category/category-detail-needtem.html"

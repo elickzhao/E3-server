@@ -12,6 +12,7 @@
 
 		<div class="test">
 			<!-- props 不能用className这种形式 只能用小写或者class-name这种形式 到模版里会自动转换成className -->
+			<!--XXX 改写编辑情况了 删除-->
 			<pic-list :items="items" :urlpic="urlPic"></pic-list>
 			<input type="button" id="" value="添加" @click="add" />
 		</div>
@@ -22,33 +23,62 @@
 		<link rel="stylesheet" type="text/css" href="../components/list/piclist.css" />
 		<script src="../components/list/piclist.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			mui.init();
-			var userInfo = storageGetclass('user') ;
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {	//XXX 没有下拉刷新居然他还存在
+					container: '#pullrefresh',
+					up: {
+						height: 100,
+						callback: pullupRefresh
+					}
+				}
+			});
+			var userInfo = storageGetclass('user');
 			var token = localStorage.getItem('token');
-			
+
 			var vm = new Vue({
 				el: '.test',
 				data: {
 					urlPic: urlPic,
 					items: []
 				},
-				methods:{
-					add: function(){
-						this.items.push(
-							{herf:'#',name:'new',price1: '99.0',price2: '99.0',}
-						);
+				methods: {
+					add: function(data) {
+						//this.items = this.items.concat(data);
+						//上面是通常写法,下面这个据说速度会快一些.
+						this.items.push.apply(this.items,data);
 					}
 				}
 			});
-			
-			mui.plusReady(function () {
-			   	ajax_get_collect(userInfo,token,function(data){
-//					document.getElementById("wallet").innerText = '￥'+data.user_money;
-//					document.getElementById("points").innerText = data.pay_points;
-//					vm.ok=true;
-					vm.items = data.data;
-				}); 
-			})	
+
+			mui.plusReady(function() {
+				getCollect();
+			})
+
+			function pullupRefresh() {
+				getCollect();
+
+			}
+			var page = 1;
+
+			function getCollect() {
+				ajax_get_collect(userInfo, token, page, function(data) {
+					if(page == 1){
+						vm.items = data.data;
+					}else{
+						vm.add(data.data);
+					}
+					page++;
+					// 通过返回数据判断是否下拉加载
+					if(data.meta.pagination.total_pages == 1) {
+						mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
+					} else if(data.meta.pagination.total_pages == data.meta.pagination.current_page) {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+					} else {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+					}
+				});
+			}
 		</script>
 	</body>
 
