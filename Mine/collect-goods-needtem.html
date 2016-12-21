@@ -14,7 +14,6 @@
 			<!-- props 不能用className这种形式 只能用小写或者class-name这种形式 到模版里会自动转换成className -->
 			<!--XXX 改写编辑情况了 删除-->
 			<pic-list :items="items" :urlpic="urlPic"></pic-list>
-			<input type="button" id="" value="添加" @click="add" />
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/ajax.js" charset=""></script>
@@ -25,7 +24,7 @@
 		<script type="text/javascript">
 			mui.init({
 				swipeBack: false,
-				pullRefresh: {	//XXX 没有下拉刷新居然他还存在
+				pullRefresh: {
 					container: '#pullrefresh',
 					up: {
 						height: 100,
@@ -33,6 +32,7 @@
 					}
 				}
 			});
+
 			var userInfo = storageGetclass('user');
 			var token = localStorage.getItem('token');
 
@@ -46,11 +46,30 @@
 					add: function(data) {
 						//this.items = this.items.concat(data);
 						//上面是通常写法,下面这个据说速度会快一些.
-						this.items.push.apply(this.items,data);
+						this.items.push.apply(this.items, data);
 					}
 				}
 			});
 
+			//这个一定放在vue后面 这样模版才是加载上的 才能操作.
+			(function($) {
+				var btnArray = ['确认', '取消'];
+				//第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
+				$('#pullrefresh').on('tap', '.mui-btn', function(event) {
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+						if (e.index == 0) {
+							li.parentNode.removeChild(li);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+			})(mui);
+			
 			mui.plusReady(function() {
 				getCollect();
 			})
@@ -63,9 +82,10 @@
 
 			function getCollect() {
 				ajax_get_collect(userInfo, token, page, function(data) {
-					if(page == 1){
+					if(page == 1) {
 						vm.items = data.data;
-					}else{
+						mui.toast('向左侧滑动可以删除收藏!');
+					} else {
 						vm.add(data.data);
 					}
 					page++;

@@ -416,7 +416,8 @@
 					"css/iconfont.css",
 					"css/mui.min.css",
 					"fonts/mui.ttf",
-					"img/jump.gif"
+					"img/jump.gif",
+					"Mine/collect-goods-needtem.html"
 				],
 				"refer": [
 					"Mine/my-wallet-needtem.html"
