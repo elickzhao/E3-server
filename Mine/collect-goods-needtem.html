@@ -58,9 +58,13 @@
 				$('#pullrefresh').on('tap', '.mui-btn', function(event) {
 					var elem = this;
 					var li = elem.parentNode.parentNode;
+
 					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
 						if (e.index == 0) {
+							//删除收藏动作
 							li.parentNode.removeChild(li);
+							ajax_delete_collect(userInfo,li.id,token);
+							
 						} else {
 							setTimeout(function() {
 								$.swipeoutClose(li);
@@ -84,6 +88,7 @@
 				ajax_get_collect(userInfo, token, page, function(data) {
 					if(page == 1) {
 						vm.items = data.data;
+						//XXX 这里每次重新载入页面就会提示,以后看看有没有更好的方法, 比如让第一个收藏动一下
 						mui.toast('向左侧滑动可以删除收藏!');
 					} else {
 						vm.add(data.data);

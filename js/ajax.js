@@ -12,7 +12,7 @@ document.body.appendChild(load_element);
 
 	//XXX 服务器地址
 	//var httpUrl = "http://api.huanqiujishi.com/";
-	var httpUrl = "http://114.245.17.182/ujwt/public/api/";
+	var httpUrl = "http://114.245.86.52/ujwt/public/api/";
 	var urlPic = 'http://www.huanqiujishi.com/server/content/uploads/';
 	var app_key = "9e304d4e8df1b74cfa009913198428ab";
 	var v = "v1.0";
@@ -429,7 +429,7 @@ document.body.appendChild(load_element);
 	w.ajax_get_collect = function(userInfo,token,page,callback){	
 		startLoad();
 		var url = httpUrl+'user/collect/'+userInfo.user_id+'?page='+page+'&token='+token;
-		console.log(url);
+		//console.log(url);
 		mui.ajax(url,{
 			dataType:'json',//服务器返回json格式数据
 			type:'post',//HTTP请求类型
@@ -439,6 +439,25 @@ document.body.appendChild(load_element);
 //				console.log(data);
 				endLoad();
 				return callback(data);
+
+			},
+			error:function(xhr,type,errorThrown){
+				console.log(type);
+				console.log(getMessage(type,xhr));
+				
+			}
+		});
+	}
+	w.ajax_delete_collect = function(userInfo,goodId,token){	
+		var url = httpUrl+'user/collect/delete/'+userInfo.user_id+'/'+goodId+'?token='+token;
+		console.log(url);
+		mui.ajax(url,{
+			dataType:'json',//服务器返回json格式数据
+			type:'post',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			success:function(data){
+//				logData(data);
+//				console.log(data);
 
 			},
 			error:function(xhr,type,errorThrown){

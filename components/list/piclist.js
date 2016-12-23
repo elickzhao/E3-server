@@ -13,7 +13,7 @@ Vue.component('pic-list', {
   template: ' \
 		<div id="pullrefresh" class="mui-content own-content-padding"> \
 			<ul id="productsList" class="mui-table-view" style="margin-top: 0px;"> \
-				<li v-for="item in items" class="mui-table-view-cell mui-media mui-col-xs-12"> \
+				<li v-for="item in items" :id="item.goods_id" class="mui-table-view-cell mui-media mui-col-xs-12"> \
 					<div class="mui-slider-right mui-disabled"> \
 						<a class="mui-btn mui-btn-red">删除</a> \
 					</div> \
