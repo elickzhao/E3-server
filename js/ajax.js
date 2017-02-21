@@ -12,7 +12,7 @@ document.body.appendChild(load_element);
 
 	//XXX 服务器地址
 	//var httpUrl = "http://api.huanqiujishi.com/";
-	var httpUrl = "http://114.245.86.52/ujwt/public/api/";
+	var httpUrl = "http://114.254.179.134/ujwt/public/api/";
 	var urlPic = 'http://www.huanqiujishi.com/server/content/uploads/';
 	var app_key = "9e304d4e8df1b74cfa009913198428ab";
 	var v = "v1.0";
